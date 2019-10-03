@@ -1,0 +1,23 @@
+clone:
+  git:
+    # custom image that clones the repo properly, including branches etc.
+    image: docker.artifactory.adform.com/rip/drone-git-clone:2.20.1-r0-0-8c6c1bd
+
+pipeline:
+  
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - .ivy2
+      - .sbt
+      - .nuget
+    volumes:
+      - /tmp/cache:/cache
+
+  print-version:
+    image: brenix/alpine-bash-git-ssh@sha256:1379e66d00ebe2a3a7d34f55a2b53182abccad7f57d1bfd3946ffc5d9f4845ee
+    commands:
+      - cd builds
+      - ./get_version.sh
+

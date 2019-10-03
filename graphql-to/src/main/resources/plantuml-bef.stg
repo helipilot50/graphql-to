@@ -1,0 +1,229 @@
+
+delimiters "$", "$"
+
+
+exitDocument(definitions, package, linkFields, scalars, enums) ::= <<
+@startuml
+hide empty members
+package $package$ {
+
+	$definitions$
+	
+	
+	$linkFields$
+	
+	$if(scalars)$
+	together {
+		$scalars$
+	}
+	$endif$
+
+	$if(enums)$
+	together {
+		$enums$
+	}
+	$endif$
+
+	
+}
+@enduml
+
+>>
+
+inputObjectTypeDefinition(name, inputValues, linkFields) ::= <<
+class $name$ << (I,#7cb7ed) input\>>{
+	$inputValues:{v |$v$
+	}$
+}
+$if(linkFields)$$linkFields$$endif$
+
+>>
+
+enumTypeDefinition(name, enumValues) ::= <<
+enum $name$ << (E,#48b29d) enum\>>{
+	$enumValues:{v |$v$
+	}$
+	
+}
+
+>>
+
+enumValue(value) ::= <<
+$value$
+>>
+
+scalarTypeDefinition(name) ::= <<
+class $name$ << (S,#48b29d) scalar\>>{
+}
+
+>>
+
+objectTypeDefinition(name, interfaces, fields, methods, linkFields) ::= <<
+class $name$ << (T,#7cb7ed) type\>> {
+	$fields$
+	$methods$
+}
+$if(linkFields)$$linkFields$$endif$
+$interfaces:{z|$z$ <|.down. $name$ }$
+
+>>
+
+interfaceTypeDefinition(name, fields, methods, linkFields) ::= <<
+interface $name$ << (i,#7cb7ed) interface\>> {
+	$fields$
+	$methods$
+}
+
+$if(linkFields)$$linkFields$$endif$
+
+>>
+
+unionTypeDefinition(name, members) ::= <<
+class $name$ << (u,#7cb7ed) union\>>{
+}
+
+$members:{z|$aggregation(name, z)$}$
+
+>>
+aggregation(from, to) ::= <<
+$from$ *--> $exactlyOne()$ $to$
+
+>>
+
+type(type) ::= <<
+$type$
+>>
+
+
+argumentsDefinition(arguments) ::= <<
+$arguments$	
+>>
+
+inputValueDefinition(name, type, defaultValue) ::= <<
+$name$:$type$$if(defaultValue)$ = $defaultValue$$endif$
+>>
+
+
+fieldDefinition(name, type) ::= <<
+$name$: $type$
+
+>>
+
+operation(name, type, arguments) ::= <<
+$name$$if(arguments)$($arguments; separator=", "$)$endif$: $type$ 
+
+>>
+
+listType(typeName, cardinality) ::= <<
+$typeName$$if(cardinality)$[$cardinality$]$endif$ 
+>>
+
+nonNullType(name) ::= <<
+$name$[1]
+>>
+
+association(typeA, nameA, cardA, typeB, nameB, cardB) ::= <<
+$typeA$ "$cardA$" --> "$cardB$" $typeB$ : $nameA$
+
+>>
+
+oneToMany() ::= <<
+1..*
+>>
+
+manyToOne() ::= <<
+*..1
+>>
+
+manyToMany() ::= <<
+*..*
+>>
+
+zeroOrOne() ::= <<
+0..1
+>>
+
+zeroToMany() ::= <<
+0..*
+>>
+
+many() ::= <<
+*
+>>
+
+exactlyOne() ::= <<
+1
+>>
+
+int() ::= <<
+Integer
+>>
+
+float() ::= <<
+Double
+>>
+
+string() ::= <<
+String
+>>
+
+boolean() ::= <<
+Boolean
+>>
+
+jsontype() ::= <<
+JSONType
+>>
+
+date() ::= <<
+Date
+>>
+
+bigdecimal() ::= <<
+BigDecimal
+>>
+
+currencycode() ::= <<
+CurrencyCode
+>>
+
+emailaddress() ::= <<
+EmailAddress
+>>
+
+nonnegativefloat() ::= <<
+NonNegativeFloat
+>>
+
+objectid() ::= <<
+ObjectId
+>>
+
+sort() ::= <<
+Sort
+>>
+
+uuid() ::= <<
+UUID
+>>
+
+customType(typeName, package)::= <<
+$typeName$
+>>
+
+packageSeperator() ::= <<
+_
+>>
+
+
+reservedWord(word) ::= <<
+$word$
+>>
+
+normalWord(word) ::= <<
+$word$
+>>
+
+
+reservedWordList() ::= <<
+>>

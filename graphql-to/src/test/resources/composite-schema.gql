@@ -1,0 +1,3651 @@
+type AccessContext {
+  canDisplayRtbInNewDirect: Boolean!
+  canManageRealTimeBidding: Boolean!
+  canAccessAutomatedGuaranteed: Boolean!
+  cultureInfo: String!
+  isTraffic: Boolean!
+  currencyId: Int!
+  currencyCode: String!
+  campaignId: Int!
+  campaignName: String!
+  campaignStart: String!
+  campaignEnd: String!
+  orderId: Int!
+  orderName: String!
+  currentOrderStart: String!
+  currentOrderEnd: String!
+  campaignCurrency: String!
+  clientId: Int!
+  clientName: String!
+  netAmountCalculationMethod: Int!
+  userAccountName: String!
+  userFullName: String!
+  userEmail: String!
+  agencyUserId: Int!
+  agencyId: Int!
+}
+
+type AccessError {
+  reason: String!
+  message: String
+}
+
+type AccessErrorModel {
+  reason: String!
+  message: String
+}
+
+type Account {
+  advertiserId: String!
+  buyerId: String!
+  id: String
+  name: String!
+  providerData: String
+}
+
+input Account_input {
+  advertiserId: String!
+  buyerId: String!
+  id: String
+  name: String!
+  providerData: String
+}
+
+input ActivateTrackingPointsInput {
+  trackingSetupId: Int!
+  ids: [Int]!
+}
+
+type Address {
+  city: String!
+  country: String!
+  addressLine1: String!
+  addressLine2: String
+  postalCode: String
+  state: String
+}
+
+type Adform_AspNetCore_ErrorHandler_Contracts_ErrorResponse {
+  reason: String
+  message: String
+  params: JSONType
+}
+
+type Adform_AuditLog_EntityType_Service_Contracts_EntityTypeRequest {
+  name: String!
+  product: String!
+  nameProperty: String
+}
+
+input Adform_AuditLog_EntityType_Service_Contracts_EntityTypeRequest_input {
+  name: String!
+  product: String!
+  nameProperty: String
+}
+
+type Adform_AuditLog_EntityType_Service_Contracts_EntityTypeResponse {
+  id: String!
+  name: String!
+  product: String!
+  nameProperty: String
+}
+
+type AdformApiBadRequest {
+  reason: String!
+  message: String!
+  params: JSONType
+}
+
+type AdformApiBadRequestWithoutDetalization {
+  reason: String!
+  message: String!
+  params: JSONType
+}
+
+type AdformApiErrorResponse {
+  reason: String
+  message: String
+  params: JSONType
+}
+
+type AdformApiForbidden {
+  reason: String!
+  message: String!
+}
+
+type AdformApiNotFound {
+  reason: String!
+  message: String!
+}
+
+type AdformApiUnauthorized {
+  reason: String!
+  message: String!
+}
+
+type AdServingSettings {
+  method: AdServingSettingsMethod!
+  level: AdServingSettingsLevel!
+}
+
+enum AdServingSettingsLevel {
+  All
+  MediaplanningOnly
+  TrackingOnly
+}
+
+enum AdServingSettingsMethod {
+  Undefined
+  Impressions
+  Clicks
+  Invisible
+  Mediaplan
+  EmailMarketing
+}
+
+type agenciesContact {
+  type: String!
+  firstName: String!
+  lastName: String!
+  address: JSONType
+  email: String
+  honorific: String
+  fax: String
+  phone: String
+  title: String
+}
+
+input agenciesContact_input {
+  type: String!
+  firstName: String!
+  lastName: String!
+  address: JSONType
+  email: String
+  honorific: String
+  fax: String
+  phone: String
+  title: String
+}
+
+type AgenciesCreative {
+  id: String
+  accountId: String!
+  adFormatType: String!
+  adQualityRejectionReason: String
+  adQualityStatus: AgenciesCreative_adQualityStatus_enum!
+  backupFlashAsset: String
+  clickUrl: String!
+  creativeAsset: String!
+  geometry: JSONType!
+  httpsCompatible: Boolean
+  language: String!
+  maturityLevel: AgenciesCreative_maturityLevel_enum
+  name: String!
+  providerData: String
+}
+
+enum AgenciesCreative_adQualityStatus_enum {
+  Pending
+  Approved
+  Rejected
+}
+
+input AgenciesCreative_input {
+  id: String
+  accountId: String!
+  adFormatType: String!
+  adQualityRejectionReason: String
+  adQualityStatus: AgenciesCreative_adQualityStatus_enum!
+  backupFlashAsset: String
+  clickUrl: String!
+  creativeAsset: String!
+  geometry: JSONType!
+  httpsCompatible: Boolean
+  language: String!
+  maturityLevel: AgenciesCreative_maturityLevel_enum
+  name: String!
+  providerData: String
+}
+
+enum AgenciesCreative_maturityLevel_enum {
+  Children
+  General
+  Mature
+}
+
+type agenciesSegment {
+  target: String
+  targetValues: [String]
+}
+
+input agenciesSegment_input {
+  target: String
+  targetValues: [String]
+}
+
+type AgFrequencyCapping {
+  frequencyCount: Int!
+  frequencyInterval: FrequencyCapInterval!
+}
+
+input AgFrequencyCappingIT {
+  frequencyCount: Int!
+  frequencyInterval: FrequencyCapInterval!
+}
+
+type Assignment {
+  id: String
+  creativeId: String!
+  lineId: String!
+  status: Assignment_status_enum!
+  providerData: String
+  weight: Float
+}
+
+input Assignment_input {
+  id: String
+  creativeId: String!
+  lineId: String!
+  status: Assignment_status_enum!
+  providerData: String
+  weight: Float
+}
+
+enum Assignment_status_enum {
+  Active
+  Inactive
+}
+
+enum AuditChangePropertyType {
+  Other
+  JSON
+}
+
+enum AuditChangeType {
+  Update
+  Add
+  Remove
+}
+
+enum AuditCompanyType {
+  Agency
+  Publisher
+}
+
+enum AuditIdentificatorType {
+  Undefined
+  User
+  Company
+}
+
+enum AuditlogType {
+  Undefined
+  Change
+  Event
+}
+
+enum AuditOrderDirection {
+  Descending
+  Ascending
+}
+
+type AuthenticationError {
+  reason: String!
+  message: String
+}
+
+type AuthenticationErrorModel {
+  reason: String!
+  message: String
+}
+
+type BadRequestResponse {
+  reason: String
+  message: String
+  params: JSONType
+}
+
+"""
+The `BigDecimal` scalar type represents signed fractional values with arbitrary precision.
+"""
+scalar BigDecimal
+
+"""Enum type: BookingStatus"""
+enum BookingStatus {
+  Stopped
+  Booked
+  Reserved
+  PendingBooking
+  Draft
+  Proposed
+  Canceled
+  Expired
+  Deleted
+  Declined
+  ProposedDraft
+  Finished
+  PendingReservation
+  Paused
+  InFlight
+}
+
+"""Enum type: BookingType"""
+enum BookingType {
+  Days
+  Weeks
+  Months
+  Conversion1
+  Conversion2
+  Conversion3
+  CPM
+  vCPM
+  CPC
+  CPA
+  ROAS
+  dCPM
+  FlatCost
+}
+
+"""Enum type: BookingTypeStatIT"""
+enum BookingTypeStatIT {
+  Days
+  Weeks
+  Months
+  Conversion1
+  Conversion2
+  Conversion3
+  CPM
+  vCPM
+  CPC
+  CPA
+  ROAS
+  dCPM
+  FlatCost
+}
+
+type BudgetOverview {
+  ag: Float!
+  print: Float!
+  direct: Float!
+  rtb: Float!
+  fee: Float!
+}
+
+type BudgetSettings {
+  amount: Float
+  goalType: BudgetSettingsGoalType
+  periodType: BudgetSettingsPeriodType
+  pacingType: BudgetSettingsPacingType
+}
+
+enum BudgetSettingsGoalType {
+  budget
+  impressions
+  clicks
+}
+
+enum BudgetSettingsPacingType {
+  evenly
+  asap
+  ahead
+}
+
+enum BudgetSettingsPeriodType {
+  total
+  daily
+}
+
+type BuyerCampaign {
+  id: Int!
+  agencyId: Int!
+  status: Status!
+  createdAt: String!
+  billingId: Int!
+  billingCode: String!
+  type: String!
+  trackingSetupId: Int!
+  name: String!
+  advertiserId: Int!
+  startDate: String!
+  endDate: String!
+  budget: Float!
+  currency: String!
+  subType: String!
+  placementViewType: PlacementViewType!
+  managerId: Int!
+  coManagerId: Int!
+  trafficking: Trafficking!
+  supportPackage: SupportPackage!
+  timeZone: String!
+  comment: String
+  purchaseOrderNumber: String
+  ovkCampaignId: String
+  crossDeviceTargetingEnabled: Boolean!
+  commentForReporting: String
+  cookieLifeTime: JSONType!
+  visibility: JSONType!
+  tracking: JSONType!
+  adServing: JSONType!
+  marathon: JSONType
+}
+
+type BuyerCampaignBrandSafetySettings {
+  enabled: Boolean!
+  providerId: Int!
+  blockedCategories: [Int]!
+  blockUncategorized: Boolean!
+}
+
+input BuyerCampaignBrandSafetySettingsInput {
+  enabled: Boolean!
+  providerId: Int!
+  blockedCategories: [Int]!
+  blockUncategorized: Boolean!
+}
+
+enum BuyerCampaignCappingPeriodType {
+  Campaign
+  Days
+  Hours
+}
+
+enum BuyerCampaignCappingViewabilityType {
+  Time
+  BrandExposure
+}
+
+input BuyerCampaignCreateInput {
+  advertiserId: Int!
+  name: String!
+  budget: Float
+  currency: String
+  startDate: String
+  endDate: String
+  subType: Subtype
+  placementViewType: PlacementViewType
+  managerId: Int
+  coManagerId: Int
+  trafficking: Trafficking
+  supportPackage: SupportPackage
+  timeZone: String
+  comment: String
+  purchaseOrderNumber: String
+  ovkCampaignId: String
+  crossDeviceTargetingEnabled: Boolean
+  commentForReporting: String
+  cookieLifeTime: JSONType
+  visibility: JSONType
+  tracking: JSONType
+  adServing: JSONType
+  marathon: JSONType
+}
+
+input BuyerCampaignLabelGroupInput {
+  id: Int!
+  name: String!
+  labels: [BuyerCampaignLabelInput]
+}
+
+input BuyerCampaignLabelInput {
+  id: Int!
+  name: String!
+}
+
+type BuyerCampaignLabels {
+  labelGroups: [CampaignLabelGroup]!
+}
+
+input BuyerCampaignLabelsInput {
+  labelGroups: [BuyerCampaignLabelGroupInput]!
+}
+
+enum BuyerCampaignRtbBudgetSettingsPeriodType {
+  Total
+  Daily
+}
+
+enum BuyerCampaignRtbCappingPacingType {
+  Evenly
+  Asap
+}
+
+input BuyerCampaignRtbCappingSettingsInput {
+  type: RtbCappingDtoType
+  impressions: Int
+  period: JSONType
+  viewability: JSONType
+}
+
+type BuyerCampaignRtbSettings {
+  budget: JSONType
+  budgetGoalType: BuyerCampaignRtbSettingsBudgetGoalType
+  budgetPeriodType: BuyerCampaignRtbBudgetSettingsPeriodType
+  capping: [RtbCappingSettings]
+}
+
+enum BuyerCampaignRtbSettingsBudgetGoalType {
+  Cost
+  Impressions
+  Clicks
+}
+
+input BuyerCampaignRtbSettingsInput {
+  budget: JSONType
+  budgetGoalType: BuyerCampaignRtbSettingsBudgetGoalType
+  budgetPeriodType: BuyerCampaignRtbBudgetSettingsPeriodType
+  capping: [BuyerCampaignRtbCappingSettingsInput]
+}
+
+input BuyerCampaignUpdateInput {
+  advertiserId: Int!
+  name: String!
+  budget: Float!
+  currency: String!
+  startDate: String!
+  endDate: String!
+  subType: Subtype!
+  placementViewType: PlacementViewType!
+  managerId: Int!
+  coManagerId: Int!
+  trafficking: Trafficking!
+  supportPackage: SupportPackage!
+  timeZone: String!
+  comment: String
+  purchaseOrderNumber: String
+  ovkCampaignId: String
+  crossDeviceTargetingEnabled: Boolean!
+  commentForReporting: String
+  cookieLifeTime: JSONType!
+  visibility: JSONType!
+  tracking: JSONType!
+  adServing: JSONType!
+  marathon: JSONType
+}
+
+type BuyerOrder {
+  id: Int
+  name: String!
+  startDate: String!
+  endDate: String!
+  budget: Float!
+  campaignId: Int!
+  active: Boolean
+  rtbSettings: OrderRtbSettings
+}
+
+type CalculatedBudget {
+  linesCount: Int!
+  allocatedInclFee: Float!
+  plannedBudget: Float!
+  grossAmount: Float!
+  discount: Float!
+  netAmount: Float!
+  agencyDiscount: Float
+  netAmount2: Float
+  vat: Float!
+  adformFee: Float!
+  totalFeeNA: Float!
+  totalFeeNA2: Float
+  netAmountAndFeeExclAdformFee: Float!
+  netAmountAndFeeExclAdformFeeAndVat: Float!
+  netAmountInclAdformFee: Float!
+  netAmountInclFees: Float!
+  netAmountInclFeesAndVat: Float!
+  netAmount2AndFeeExclAdformFee: Float
+  netAmount2AndFeeExclAdformFeeAndVat: Float
+  netAmount2InclAdformFee: Float
+  netAmount2InclFees: Float
+  netAmount2InclFeesAndVat: Float
+}
+
+type Campaign {
+  id: Int
+  type: CampaignListFilterType
+  code: String
+  name: String
+  client: String
+  clientId: Int
+  budget: Float
+  currency: String
+  managerId: Int
+  coManagerId: Int
+  startDate: String
+  endDate: String
+  state: CampaignListFilterState
+  timeZoneOffsetHours: Int
+  status: CampaignListFilterStatus
+  defaultCrossDeviceTargetingEnabled: Boolean
+  rtbSettings: BuyerCampaignRtbSettings
+}
+
+type CampaignDetails {
+  timeZoneName: String
+  id: Int
+  type: CampaignListFilterType
+  code: String
+  name: String
+  client: String
+  clientId: Int
+  budget: Float
+  currency: String
+  managerId: Int
+  coManagerId: Int
+  startDate: String
+  endDate: String
+  state: CampaignListFilterState
+  timeZoneOffsetHours: Int
+  status: CampaignListFilterStatus
+  defaultCrossDeviceTargetingEnabled: Boolean
+  rtbSettings: BuyerCampaignRtbSettings
+}
+
+type CampaignLabel {
+  id: Int!
+  name: String!
+}
+
+type CampaignLabelGroup {
+  id: Int!
+  name: String!
+  labels: [CampaignLabel]
+}
+
+type CampaignList {
+  campaigns: [Campaign]
+}
+
+type CampaignListFilter {
+  allFields: [String]
+  fields: String
+  status: [CampaignListFilterStatus]
+  client: [Int]
+  type: [CampaignListFilterType]
+  state: [CampaignListFilterState]
+  label: [Int]
+  manager: [Int]
+  coManager: [Int]
+  id: [Int]
+  code: [String]
+  search: String
+  orderBy: CampaignListFilterOrderBy
+  orderDirection: CampaignListFilterOrderDirection
+  offset: Int
+  limit: Int
+}
+
+enum CampaignListFilterOrderBy {
+  Default
+  Type
+  Code
+  Title
+  Budget
+  Spent
+}
+
+enum CampaignListFilterOrderDirection {
+  Ascending
+  Descending
+}
+
+enum CampaignListFilterState {
+  Active
+  Inactive
+  Pending
+}
+
+enum CampaignListFilterStatus {
+  Running
+  Pending
+  Finished
+}
+
+enum CampaignListFilterType {
+  Display
+  Email
+  Affiliate
+  Mobile
+  SocialMedia
+  Mixed
+  NonCampaign
+  Google
+  Yahoo
+  SearchNonApi
+  SearchAll
+  RealtimeBidding
+  Microsoft
+  Print
+}
+
+type CampaignName {
+  advertiser: EntityName
+  id: Int
+  name: String
+}
+
+type CampaignSummary {
+  id: Int!
+  name: String!
+  billingCode: String!
+  type: Type!
+  subType: Subtype!
+  budget: Float!
+  startDate: String!
+  endDate: JSONType!
+  status: Status!
+  currency: String!
+  advertiserId: Int!
+  managerId: Int!
+  coManagerId: Int!
+  timeZone: String!
+}
+
+type CappingPeriodDto {
+  type: BuyerCampaignCappingPeriodType
+  duration: Int
+}
+
+type CappingViewabilityDto {
+  type: BuyerCampaignCappingViewabilityType
+  duration: Int
+}
+
+type Category {
+  id: Int
+  name: String
+  segments: [Segment]
+}
+
+type ChangeListItem {
+  property: RtbLineItemChangeListItemProperty
+  operation: RtbLineItemChangeListItemOperation
+  oldValue: String
+  newValue: String
+  campaign: CampaignName
+  advertiser: EntityName
+}
+
+type ChangeLogFilter {
+  offset: Int
+  limit: Int
+}
+
+type ChangeLogListItem {
+  user: String
+  changeDate: String
+  changes: [ChangeListItem]
+}
+
+type CompanyIdentifier {
+  companyType: AuditCompanyType
+  companyId: String
+}
+
+type ContextualCategories {
+  providerId: Int!
+  ids: [Int]!
+}
+
+type CookieLifeTimeSettings {
+  viewHours: Int!
+  clickHours: Int!
+  recentViewSeconds: Int!
+  recentClickSeconds: Int!
+}
+
+type CpaPricing {
+  price: Float
+  maxBidPrice: Float
+  optimization: RtbLineItemCpaPricingOptimization!
+  interactionType: RtbLineItemCpaPricingInteractionType!
+  trackingPointsFilterId: Int
+  type: RtbLineItemCpaPricingType
+}
+
+type CpcPricing {
+  price: Float
+  maxBidPrice: Float
+  optimization: RtbLineItemCpcPricingOptimization
+}
+
+type CpmPricing {
+  price: Float
+}
+
+type CreateCampaignParams {
+  advertiserId: Int!
+  name: String!
+  budget: Float
+  currency: String
+  startDate: String
+  endDate: String
+  subType: Subtype
+  placementViewType: PlacementViewType
+  managerId: Int
+  coManagerId: Int
+  trafficking: Trafficking
+  supportPackage: SupportPackage
+  timeZone: String
+  comment: String
+  purchaseOrderNumber: String
+  ovkCampaignId: String
+  crossDeviceTargetingEnabled: Boolean
+  commentForReporting: String
+  cookieLifeTime: JSONType
+  visibility: JSONType
+  tracking: JSONType
+  adServing: JSONType
+  marathon: JSONType
+}
+
+type CreatedIdsInLineViewUpdated {
+  fakeId: Int!
+  dspId: Int!
+}
+
+input CreateLineItemInput {
+  name: String!
+  type: RtbLineItemCreateType!
+  orderId: Int!
+  paused: Boolean
+  crossDeviceEnabled: Boolean
+  showSingleImpression: Boolean
+  bidOnMatchedCookies: Boolean
+  brandSafetyEnabled: Boolean
+  periods: [RtbLineItemPeriodInput]!
+  budget: RtbLineItemBudgetInput!
+  pricing: RtbLineItemPricingInput!
+  impressionCapping: [RtbLineItemCappingInput]
+  inventories: [RtbLineItemInventoryInput]!
+  categories: RtbLineItemCategoriesInput
+  domains: RtbLineItemDomainsInput
+  apps: RtbLineItemAppsInput
+  placement: RtbLineItemPlacementInput
+  targeting: [RtbLineItemAudienceInput]!
+  banners: [RtbLineItemBannerInput]
+  environmentSettings: RtbLineItemEnvironmentSettingsInput
+}
+
+input CreateOrderInput {
+  startDate: String
+  endDate: String
+  id: Int
+  name: String!
+  budget: Float!
+  campaignId: Int!
+  active: Boolean
+  rtbSettings: OrderRtbSettingsInput
+}
+
+"""Enum type: CreativeSpecType"""
+enum CreativeSpecType {
+  Empty
+  StandardBanner
+  Expanding
+  TearBack
+  Keyword
+  Textlink
+  Synchronized
+  Floating
+  Interstitial
+  InStream
+  Wallpaper
+}
+
+scalar CurrencyCode
+
+scalar Date
+
+type DcpmPricing {
+  price: Float
+  maxBidPrice: Float
+  type: RtbLineItemDcpmPricingType
+}
+
+input DeactivateTrackingPointsInput {
+  trackingSetupId: Int!
+  ids: [Int]!
+  period: TrackingPointsDeleteAfterPeriod!
+}
+
+type Deal {
+  id: ObjectId!
+  name: String!
+  dealId: ObjectId
+  pricingType: DealPricing
+  inventorySource: InventorySource
+  formats: [InventoryFormat]
+  sizes: [InventorySize]
+  channels: [InventoryChannel]
+  party: InventoryParty
+  price: NonNegativeFloat
+  currencyCode: CurrencyCode
+  eCPM: NonNegativeFloat
+  eCPC: NonNegativeFloat
+  CTR: NonNegativeFloat
+  html: DealHTML
+}
+
+type DealHTML {
+  name: String
+  dealId: String
+  inventorySource: InventorySource
+  formats: [InventoryFormat]
+  channels: [InventoryChannel]
+  party: InventoryParty
+  currencyCode: String
+}
+
+enum DealPricing {
+  preferred
+  private
+}
+
+type DealResponse {
+  availableCount: Int
+  count: Int
+  results: [Deal]
+  filters: [InventoryFilter]
+}
+
+input DealSorting {
+  name: DealSortingField
+  order: SortingOrder
+}
+
+enum DealSortingField {
+  id
+  name
+  dealId
+  pricingType
+  inventorySource
+  party
+  price
+  currencyCode
+  eCPM
+  eCPC
+  CTR
+}
+
+type DeviceType {
+  id: Int
+  name: String
+}
+
+type DeviceTypes {
+  values: [DeviceType]
+  additionalValues: [OperatingSystem]
+}
+
+input DiffLinePricingView {
+  lines: [LinePricingViewIT!] = []
+  deleted: [Int!] = []
+}
+
+input DiffLineView {
+  lines: [LineViewResponseIT!] = []
+  deleted: [Int!] = []
+}
+
+type DirectBudgetOverview {
+  impressionsVolume: Float!
+  impressionsAmount: BigDecimal!
+  impressionsNetAmount: BigDecimal!
+  clicksVolume: Float!
+  clicksAmount: BigDecimal!
+  clicksNetAmount: BigDecimal!
+  daysVolume: Float!
+  daysAmount: BigDecimal!
+  daysNetAmount: BigDecimal!
+  weeksVolume: Float!
+  weeksAmount: BigDecimal!
+  weeksNetAmount: BigDecimal!
+  monthsVolume: Float!
+  monthsAmount: BigDecimal!
+  monthsNetAmount: BigDecimal!
+  conversionsVolume: Float!
+  conversionsAmount: BigDecimal!
+  conversionsNetAmount: BigDecimal!
+  plannedBudget: BigDecimal!
+  netAmount: BigDecimal!
+  agencyDiscount: BigDecimal!
+  netAmount2: BigDecimal!
+  grossAmount: BigDecimal!
+  rebate: BigDecimal!
+  insertionsCount: Int!
+  impressions: Int!
+  clicks: Int!
+  days: Int!
+  weeks: Int!
+  months: Int!
+  conversions: Int!
+  lines: Int!
+}
+
+type DirectCreativeSpec {
+  id: Int
+  creativeType: CreativeSpecType
+  name: String!
+  width: Int!
+  height: Int!
+}
+
+input DirectCreativeSpecIT {
+  id: Int
+  creativeType: CreativeSpecType
+  name: String!
+  width: Int!
+  height: Int!
+}
+
+type DirectLineLabel {
+  groupId: Int!
+  labelId: Int!
+  groupName: String
+  name: String
+}
+
+input DirectLineLabelIT {
+  groupId: Int!
+  labelId: Int!
+  groupName: String
+  name: String
+}
+
+type DirectMediaSection {
+  id: Int!
+  name: String!
+}
+
+input DirectMediaSectionIT {
+  id: Int!
+  name: String!
+}
+
+type DirectTagComments {
+  tagComment1: String
+  tagComment2: String
+  tagComment3: String
+  tagComment4: String
+}
+
+input DirectTagCommentsIT {
+  tagComment1: String
+  tagComment2: String
+  tagComment3: String
+  tagComment4: String
+}
+
+enum disable_enum {
+  True
+}
+
+type DmpAudienceTargetingSegment {
+  id: Int
+  fee: Float
+  sources: [RtbLineItemDmpAudienceTargetingSegmentSource]
+}
+
+type DomainList {
+  id: String
+  domains: [String]
+}
+
+type DomainListCreateRequest {
+  domains: [String]
+}
+
+input DomainListCreateRequestInput {
+  domains: [String]
+}
+
+type Engagement {
+  id: Int
+  name: String
+}
+
+type EntityName {
+  id: Int
+  name: String
+}
+
+type EntityNameReadmodel {
+  entityId: String
+  entityTypeId: String
+  name: String
+  date: String
+  companyId: String
+  companyType: AuditCompanyType
+  product: String
+}
+
+type EntityTypeReadmodel {
+  companyId: String
+  companyType: AuditCompanyType
+  entityTypeId: String
+  entityType: String
+  product: String
+}
+
+type Error {
+  statusCode: Float
+  message: String
+}
+
+type ErrorInLineViewUpdate {
+  dspId: Int!
+  error: String!
+}
+
+type ErrorResponse {
+  reason: String
+  message: String
+  params: JSONType
+}
+
+"""Enum type: FeeApplyToType"""
+enum FeeApplyToType {
+  Direct
+  Rtb
+  DirectRtb
+}
+
+"""Enum type: FrequencyCapInterval"""
+enum FrequencyCapInterval {
+  Day
+  AdServerCustom
+  Month
+  Week
+  Hour
+  CampaignDuration
+}
+
+type HistoricalChange {
+  type: AuditChangeType
+  propertyName: String!
+  propertyType: AuditChangePropertyType
+  before: JSONType
+  after: JSONType
+}
+
+type HistoricalEntity {
+  id: String
+  entityTypeId: String
+  entityType: String
+  entityName: String
+}
+
+type HistoryObject {
+  type: AuditlogType
+  id: String
+}
+
+type HistoryReadmodel {
+  id: String
+  correlationId: String
+  historyObject: HistoryObject
+  entities: [HistoricalEntity]
+  user: User
+  companyId: String
+  companyType: String
+  changeType: AuditChangeType
+  timeOfOccurance: String
+  changes: [HistoricalChange]
+  message: String
+  parameters: JSONType
+  product: String
+}
+
+type IabCategories {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  ids: [Int]!
+}
+
+type InnerPropertyReadmodel {
+  entityId: String
+  entityTypeId: String
+  companyId: String
+  companyType: AuditCompanyType
+  innerPropertyKey: String
+  innerPropertyValue: String
+}
+
+type InputModeDto {
+  value: Int!
+}
+
+type InternetServiceProvider {
+  id: Int
+  name: String
+}
+
+type InventoryChannel {
+  id: String
+  name: String
+}
+
+type InventoryCountry {
+  id: String
+  name: String
+}
+
+type InventoryFilter {
+  key: String!
+  options: [InventoryFilterOption]!
+  groups: [InventoryFilterGroup]
+}
+
+type InventoryFilterGroup {
+  value: String!
+  label: String!
+  group: String
+}
+
+input InventoryFilterInput {
+  key: String
+  values: [String]
+}
+
+type InventoryFilterOption {
+  value: String!
+  label: String!
+  group: String
+}
+
+type InventoryFormat {
+  id: String
+  name: String
+}
+
+type InventoryParty {
+  id: ObjectId
+  name: String
+}
+
+type InventorySize {
+  width: Float
+  height: Float
+}
+
+type InventorySource {
+  id: ObjectId
+  name: String
+}
+
+type InventorySourceResponse {
+  count: Int
+  results: [InventorySource]
+}
+
+scalar JSONType
+
+type LabelGroup {
+  id: Int!
+  clientId: Int!
+  name: String!
+  index: Int!
+  labels: [LabelView!]!
+}
+
+type LabelView {
+  id: Int!
+  name: String!
+}
+
+type Language {
+  id: String
+  name: String
+}
+
+type Line {
+  id: String
+  orderId: String!
+  productId: String!
+  bookingStatus: Line_bookingStatus_enum!
+  startDate: String
+  endDate: String
+  name: String!
+  comment: String
+  cost: Float
+  frequencyCount: Float
+  frequencyInterval: Line_frequencyInterval_enum
+  quantity: Float!
+  providerData: String
+  rate: Float!
+  priceType: String!
+  reservedExpiryDate: String
+  stateChangeReason: String
+  targeting: [agenciesSegment]
+  usesExpandables: Boolean
+}
+
+enum Line_bookingStatus_enum {
+  Draft
+  PendingReservation
+  Reserved
+  PendingBooking
+  Booked
+  InFlight
+  Finished
+  Stopped
+  Canceled
+  Expired
+  Declined
+  Paused
+}
+
+enum Line_frequencyInterval_enum {
+  Hour
+  Day
+  Week
+  Month
+  CampaignDuration
+}
+
+input Line_input {
+  id: String
+  orderId: String!
+  productId: String!
+  bookingStatus: Line_bookingStatus_enum!
+  startDate: String
+  endDate: String
+  name: String!
+  comment: String
+  cost: Float
+  frequencyCount: Float
+  frequencyInterval: Line_frequencyInterval_enum
+  quantity: Float!
+  providerData: String
+  rate: Float!
+  priceType: String!
+  reservedExpiryDate: String
+  stateChangeReason: String
+  targeting: [agenciesSegment_input]
+  usesExpandables: Boolean
+}
+
+type LineItemListSortModel {
+  by: RtbLineItemListSortBy
+  direction: RtbLineItemListSortDirection
+}
+
+type LineitemsCampaign {
+  id: Int
+  name: String
+}
+
+type LineItemsTrackingPoint {
+  id: Int
+  pathAndName: String
+  active: Boolean
+  trackingSetupId: Int
+  abbreviation: String
+}
+
+"""Enum type: LineItemViewStatus"""
+enum LineItemViewStatus {
+  Active
+  Disabled
+  Deleted
+  Stopped
+  Booked
+  Reserved
+  PendingBooking
+  Draft
+  Proposed
+  Canceled
+  Expired
+  Declined
+  ProposedDraft
+  Finished
+  PendingReservation
+  Paused
+  InFlight
+  Inactive
+  Enabled
+}
+
+"""Enum type: LineItemViewType"""
+enum LineItemViewType {
+  Direct
+  Rtb
+  Ag
+}
+
+input LinePricingViewIT {
+  dspId: Int
+  refId: Int
+  buyType: BookingTypeStatIT
+  volume: Float
+  grossPrice: Float
+  fNetPrice: Float
+  grossAmount: Float
+  netAmount: Float
+  rebate: Float
+  netPrice2: Float
+  netAmount2: Float
+  agencyDiscount: Float
+}
+
+type LinesCountOverview {
+  direct: Int!
+  ag: Int!
+  print: Int!
+  rtb: Int!
+}
+
+type LinesStat {
+  directBudgetOverview: DirectBudgetOverview!
+  directBudget: CalculatedBudget!
+  fees: [UiFee!]!
+  vat: Float!
+  currency: String!
+  adformFee: Float!
+  method: Int!
+  rtbBudgetOverview: RtbBudgetOverview!
+  campaignRtbBudget: RtbBudget!
+  orderRtbBudget: OrderRtbBudget!
+  rtbBudget: CalculatedBudget!
+  orderBudget: CalculatedBudget!
+  campaignAllocatedBudget: Float!
+  campaignPlannedBudget: Float!
+  campaignDirectPlannedBudget: Float!
+  campaignRtbPlannedBudget: Float!
+  totalNetAmount: BudgetOverview
+  linesCount: LinesCountOverview
+}
+
+type LineTargeting {
+  id: String
+  title: String
+  shortTitle: String
+  description: String
+  targetType: String
+  fee: Float
+  isDeleted: Boolean
+  source: String
+  originalFee: Float
+}
+
+type LineViewResponse {
+  dspId: Int
+  id: String
+  mediaId: Int
+  publisherId: Int
+  productId: String
+  productName: String
+  mediaName: String
+  name: String
+  lineItemType: LineItemViewType
+  adGapId: String
+  mediaSectionId: Int
+  section: String
+  volume: Float
+  buyType: BookingType
+  agStatus: BookingStatus
+  poNumber: String
+  useFlatCost: Boolean
+  status: LineItemViewStatus
+  grossPrice: Float
+  netPrice: Float
+  grossAmount: Float
+  netAmount: Float
+  geometry: [DirectCreativeSpec!]
+  rebate: Float
+  netPrice2: Float
+  netAmount2: Float
+  agencyDiscount: Float
+  agencyDiscountPercent: Float
+  isScheduler: Boolean
+  startDate: String
+  endDate: String
+  tagComments: DirectTagComments
+  labels: [DirectLineLabel!]
+  mediaSections: [DirectMediaSection!]
+  frequencyCapping: AgFrequencyCapping
+  rtbStatus: String
+  rtbBudget: RtbBudget
+  tagsCount: Int
+  comment: String
+  brandSafetyEnabled: Boolean
+}
+
+input LineViewResponseIT {
+  dspId: Int
+  id: String
+  mediaId: Int
+  publisherId: Int
+  productId: String
+  productName: String
+  mediaName: String
+  name: String
+  lineItemType: LineItemViewType
+  adGapId: String
+  mediaSectionId: Int
+  section: String
+  volume: Float
+  buyType: BookingType
+  agStatus: BookingStatus
+  poNumber: String
+  useFlatCost: Boolean
+  status: LineItemViewStatus
+  grossPrice: Float
+  netPrice: Float
+  grossAmount: Float
+  netAmount: Float
+  geometry: [DirectCreativeSpecIT!]
+  rebate: Float
+  netPrice2: Float
+  netAmount2: Float
+  agencyDiscount: Float
+  agencyDiscountPercent: Float
+  isScheduler: Boolean
+  startDate: String
+  endDate: String
+  tagComments: DirectTagCommentsIT
+  labels: [DirectLineLabelIT!]
+  mediaSections: [DirectMediaSectionIT!]
+  frequencyCapping: AgFrequencyCappingIT
+  rtbStatus: String
+  rtbBudget: RtbBudgetIT
+  tagsCount: Int
+  comment: String
+  brandSafetyEnabled: Boolean
+  refId: Int
+}
+
+type LineViewUpdateResult {
+  errors: [ErrorInLineViewUpdate!]!
+  success: [Int!]!
+  createdIdsMap: [CreatedIdsInLineViewUpdated!]!
+}
+
+type ListBudget {
+  goalType: RtbLineItemListBudgetGoalType
+  amount: Float
+  pacingType: RtbLineItemBudgetPacingType
+  periodType: RtbLineItemListBudgetPeriodType
+  locked: Boolean
+}
+
+type ListLineItem {
+  id: Int!
+  placementId: Int!
+  orderId: Int!
+  campaignId: Int!
+  agencyId: Int!
+  name: String!
+  type: RtbLineItemCreateType!
+  paused: Boolean!
+  deleted: Boolean!
+  budget: ListBudget
+  budgetInfo: RtbLineItemBudget
+  periods: [RtbLineItemPeriod]
+  pricing: RtbLineItemPricing
+}
+
+type Location {
+  id: Int
+  type: RtbLineItemLocationType
+  name: String
+  countryCode: String
+}
+
+type MarathonSettings {
+  orderNumber: String
+  budgetNumber: String
+}
+
+type Media {
+  id: Int!
+  uuid: String!
+  name: String!
+  agencyDiscount: Float
+  sections: [mediaSectionType!]!
+  isTargeting: Boolean!
+  contacts: [mediaDtoType!]!
+}
+
+type mediaDtoType {
+  id: Int!
+  name: String
+  email: String
+  isMainTrafficContact: Boolean!
+}
+
+type MediaModelType {
+  id: Int!
+  uuid: String!
+  name: String!
+  isActive: Boolean!
+  isRtbMedia: Boolean!
+  isTargeting: Boolean!
+  agencyCompensation: Float
+  isHttpsOn: Boolean!
+  sections: [mediaSectionType!]!
+  contacts: [mediaDtoType!]!
+}
+
+type mediaSectionType {
+  id: Int!
+  mediaId: Int!
+  name: String!
+  comment: String
+}
+
+type MobileCategories {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  ids: [Int]!
+}
+
+type Mutation {
+  createBuyerProductsAvails(ProductAvailsSearch: ProductAvailsSearch_input!): [ProductAvails]
+  createbuyerOrganizations(Organization: Organization_input!): Organization
+  updateBuyerOrganizationsId(organizationId: String!, Organization: Organization_input!): Organization
+  createBuyerOrganizationsClient(Organization: Organization_input!): Organization
+  updateBuyerOrganizationsClientOrganizationId(organizationId: String!, Organization: Organization_input!): Organization
+  createBuyerAccounts(Account: Account_input!): Account
+  createBuyerAccountsIdOrders(integrationId: String!, accountId: String!, Order: Order_input!): Order
+  updateBuyerAccountsIdOrderId(integrationId: String!, accountId: String!, orderId: String!, Order: Order_input!): Order
+  deleteBuyerAccountsIdOrderId(integrationId: String!, accountId: String!, orderId: String!): Order
+  createBuyerAccountsIdOrderIdLines(integrationId: String!, accountId: String!, orderId: String!, AgenciesCreative: Line_input!): Line
+  deleteBuyerAccountsIdOrderIdLineId(integrationId: String!, accountId: String!, orderId: String!, lineId: String!): Line
+  updateBuyerAccountsIdOrderIdLineStatus(integrationId: String!, accountId: String!, orderId: String!, lineId: String!, status: status_enum!, Line: Line_input!): Line
+  createBuyerAccountsIdAssignments(integrationId: String!, accountId: String!, Assignment: Assignment_input!): Assignment
+  deleteBuyerAccountsIdAssignmentId(integrationId: String!, accountId: String!, assignmentId: String!): AgenciesCreative
+  updateBuyerAccountsIdAssignmentId(integrationId: String!, accountId: String!, assignmentId: String!, disable: disable_enum, AgenciesCreative: Assignment_input!): Assignment
+  createBuyerAccountsIdCreatives(integrationId: String!, accountId: String!, AgenciesCreative: AgenciesCreative_input!): AgenciesCreative
+  updateBuyerAccountsIdCreatives(integrationId: String!, accountId: String!, creativeId: String!, AgenciesCreative: AgenciesCreative_input!): AgenciesCreative
+  deleteBuyerAccountsIdCreatives(integrationId: String!, accountId: String!, creativeId: String!): AgenciesCreative
+  validate: Int
+  createCampaign(CorrelationId: String, body: BuyerCampaignCreateInput): JSONType
+  updateCampaign(CorrelationId: String, id: Int!, body: BuyerCampaignUpdateInput): BuyerCampaign
+  updateCampaignStatus(CorrelationId: String, id: Int!, body: Status): JSONType
+  updateCampaignRtbSettings(CorrelationId: String, id: Int!, body: BuyerCampaignRtbSettingsInput): BuyerCampaignRtbSettings
+  updateCampaignLabels(CorrelationId: String, id: Int!, body: [BuyerCampaignLabelsInput]): BuyerCampaignLabels
+  updateCampaignsBrandSafety(CorrelationId: String, id: Int!, body: BuyerCampaignBrandSafetySettingsInput): BuyerCampaignBrandSafetySettings
+  noop(id: String): String
+  ApiV1EntityTypesPost(request: Adform_AuditLog_EntityType_Service_Contracts_EntityTypeRequest_input, CorrelationId: String): Adform_AuditLog_EntityType_Service_Contracts_EntityTypeResponse
+  ApiV1EntityTypesByIdNamePut(id: String!, name: String, CorrelationId: String): Adform_AuditLog_EntityType_Service_Contracts_EntityTypeResponse
+  ApiV1EntityTypesByIdProductPut(id: String!, product: String, CorrelationId: String): Adform_AuditLog_EntityType_Service_Contracts_EntityTypeResponse
+  ApiV1EntityTypesByIdNamePropertyPut(id: String!, nameProperty: String, CorrelationId: String): Adform_AuditLog_EntityType_Service_Contracts_EntityTypeResponse
+  updateLinesView(diff: DiffLineView!): LineViewUpdateResult!
+  uploadDomainList(domainList: DomainListCreateRequestInput!): NewDomainList
+  updateRtbLineItemInventories(id: Int!, inventories: [RtbLineItemInventoryInput]!): [RtbLineItemInventory]
+  createRtbLineItem(model: CreateLineItemInput!): RtbLineItem
+  updateRtbLineItem(id: Int!, model: UpdateLineItemInput!): RtbLineItem
+  setRtbLineItemDeleted(id: Int!, deleted: Boolean!): JSONType
+  setRtbLineItemPaused(id: Int!, paused: Boolean!): JSONType
+  createMedia(media: NewMedia!): MediaModelType!
+  createOrder(orderRequest: CreateOrderInput): BuyerOrder
+  setOrderActive(orderId: Int!, status: OrderStatusInput): JSONType
+  updateOrder(orderId: Int!, orderRequest: UpdateOrderInput): BuyerOrder
+  activateTrackingPoints(input: ActivateTrackingPointsInput!, correlationId: String): TrackingPointsOperationResponse
+  deactivateTrackingPoints(input: DeactivateTrackingPointsInput!, correlationId: String): TrackingPointsOperationResponse
+}
+
+type NewAdvertisingIdList {
+  id: String
+}
+
+type NewCookieList {
+  id: String
+}
+
+type NewDomainList {
+  id: String
+}
+
+type NewIpRangeList {
+  id: String
+}
+
+input NewMedia {
+  name: String!
+  isHttpsOn: Boolean!
+  contacts: [NewMediaContact!]!
+}
+
+input NewMediaContact {
+  name: String!
+  email: String!
+  isEnabled: Boolean!
+  isMainTrafficContact: Boolean!
+}
+
+scalar NonNegativeFloat
+
+type NotFoundError {
+  reason: String!
+  message: String
+}
+
+type NotFoundErrorModel {
+  reason: String!
+  message: String
+}
+
+type NotFoundResponse {
+  reason: String
+  message: String
+  params: JSONType
+}
+
+scalar ObjectId
+
+type ObsoleteOrderDto {
+  state: OrderState
+  currencyCode: String
+  currency: String
+  timezone: String
+  defaultPlacementView: ObsoleteOrderDto_defaultPlacementView_enum
+  id: Int
+  name: String!
+  startDate: String!
+  endDate: String!
+  budget: Float!
+  campaignId: Int!
+  active: Boolean
+}
+
+enum ObsoleteOrderDto_defaultPlacementView_enum {
+  direct
+  rtb
+  automatedGuaranteed
+}
+
+type OpenAuction {
+  id: ObjectId!
+  name: String!
+  party: InventoryParty
+  country: InventoryCountry
+  channels: [InventoryChannel]
+  formats: [InventoryFormat]
+  sizes: [InventorySize]
+  availableDealsCount: Int
+  eCPM: NonNegativeFloat
+  eCPC: NonNegativeFloat
+  CTR: NonNegativeFloat
+  html: OpenAuctionHTML
+}
+
+type OpenAuctionHTML {
+  name: String
+  party: InventoryParty
+  country: InventoryCountry
+  channels: [InventoryChannel]
+  formats: [InventoryFormat]
+}
+
+type OpenAuctionResponse {
+  availableCount: Int
+  count: Int
+  results: [OpenAuction]
+  filters: [InventoryFilter]
+}
+
+input OpenAuctionSorting {
+  name: OpenAuctionSortingField
+  order: SortingOrder
+}
+
+enum OpenAuctionSortingField {
+  id
+  name
+  party
+  country
+  availableDealsCount
+  eCPM
+  eCPC
+  CTR
+}
+
+type OperatingSystem {
+  id: Int
+  name: String
+  masterIds: [Int]
+}
+
+type Order {
+  accountId: String!
+  brand: String
+  budget: Float
+  contacts: [agenciesContact]
+  currency: String!
+  endDate: String
+  id: String
+  industry: String
+  name: String!
+  preferredBollingMethod: String
+  providerData: String
+  startDate: String
+}
+
+enum order_enum {
+  asc
+  desc
+}
+
+input Order_input {
+  accountId: String!
+  brand: String
+  budget: Float
+  contacts: [agenciesContact_input]
+  currency: String!
+  endDate: String
+  id: String
+  industry: String
+  name: String!
+  preferredBollingMethod: String
+  providerData: String
+  startDate: String
+}
+
+enum OrderBy {
+  Default
+  Name
+  Subtype
+  BillingCode
+  Budget
+}
+
+type OrderCapping {
+  type: OrderCappingType
+  impressions: Int
+  period: OrderCappingPeriod
+  viewability: OrderCappingViewability
+}
+
+input OrderCappingInput {
+  type: OrderCappingType
+  impressions: Int
+  period: OrderCappingPeriodInput
+  viewability: OrderCappingViewabilityInput
+}
+
+type OrderCappingPeriod {
+  type: OrderCappingPeriodType
+  duration: Int
+}
+
+input OrderCappingPeriodInput {
+  type: OrderCappingPeriodType
+  duration: Int
+}
+
+enum OrderCappingPeriodType {
+  campaign
+  days
+  hours
+}
+
+enum OrderCappingType {
+  frequency
+  accumulated
+}
+
+type OrderCappingViewability {
+  type: OrderCappingViewabilityType
+  duration: Int
+}
+
+input OrderCappingViewabilityInput {
+  type: OrderCappingViewabilityType
+  duration: Int
+}
+
+enum OrderCappingViewabilityType {
+  time
+  brandExposure
+}
+
+type OrderDetailsPostRequest {
+  startDate: String
+  endDate: String
+  id: Int
+  name: String!
+  budget: Float!
+  campaignId: Int!
+  active: Boolean
+  rtbSettings: OrderRtbSettings
+}
+
+type OrderDetailsPutRequest {
+  startDate: String
+  endDate: String
+  id: Int
+  name: String!
+  budget: Float!
+  campaignId: Int!
+  active: Boolean
+  rtbSettings: OrderRtbSettings
+}
+
+enum orderDirectionEntity_enum {
+  descending
+  ascending
+}
+
+type OrderListItem {
+  id: Int
+  name: String!
+  startDate: String!
+  endDate: String!
+  budget: Float!
+  campaignId: Int!
+  active: Boolean
+}
+
+type OrderRtbBudget {
+  cost: Float!
+  clicks: Int!
+  impressions: Int!
+}
+
+type OrderRtbSettings {
+  impressionCapping: [OrderCapping]
+}
+
+input OrderRtbSettingsInput {
+  impressionCapping: [OrderCappingInput]
+}
+
+enum OrderState {
+  running
+  finished
+  pending
+}
+
+type OrderStatusDto {
+  active: Boolean!
+}
+
+input OrderStatusInput {
+  active: Boolean!
+}
+
+type Organization {
+  id: String
+  name: String!
+  status: String
+  disapprovalReason: String
+  fax: String
+  industry: String
+  phone: String
+  providerData: String
+  address: JSONType
+  contacts: [agenciesContact]
+  url: String
+}
+
+input Organization_input {
+  id: String
+  name: String!
+  status: String
+  disapprovalReason: String
+  fax: String
+  industry: String
+  phone: String
+  providerData: String
+  address: JSONType
+  contacts: [agenciesContact_input]
+  url: String
+}
+
+type PeriodSettings {
+  type: PeriodSettingsType
+  duration: Int
+}
+
+enum PeriodSettingsType {
+  Day
+  Campaign
+  Days
+  Hour
+  Hours
+}
+
+enum PlacementViewType {
+  Direct
+  RTB
+  AutomatedGuaranteed
+}
+
+type PostLineItem {
+  name: String!
+  type: RtbLineItemCreateType!
+  orderId: Int!
+  paused: Boolean
+  crossDeviceEnabled: Boolean
+  showSingleImpression: Boolean
+  bidOnMatchedCookies: Boolean
+  brandSafetyEnabled: Boolean
+  periods: [RtbLineItemPeriod]!
+  budget: RtbLineItemBudget!
+  pricing: RtbLineItemPricing!
+  impressionCapping: [RtbLineItemCapping]
+  inventories: [RtbLineItemInventory]!
+  categories: RtbLineItemCategories
+  domains: RtbLineItemDomains
+  apps: RtbLineItemApps
+  placement: RtbLineItemPlacement
+  targeting: [RtbLineItemAudience]!
+  banners: [RtbLineItemBanner]
+  environmentSettings: RtbLineItemEnvironmentSettings
+}
+
+type Product {
+  name: String!
+  domain: String
+  activeDate: String
+  basePrice: Float!
+  originalPrice: Float
+  currency: String!
+  deliveryType: String
+  estimatedDailyAvails: String
+  geometry: [Size]
+  inventoryType: String
+  maxDuration: Int
+  minDuration: Int
+  position: String
+  priceType: String
+  retirementDate: String
+  url: String
+  details: JSONType
+  id: String
+  targeting: [LineTargeting]
+  category: [String]
+  minimumCost: Float
+  minimumImpressionsNumber: Int
+  supportFrequencyCapping: Boolean
+  enablePriceNegotiations: Boolean
+  overbookingPercent: Int
+  maxDailyAvailability: Int
+  affinity: [SegmentAffinity]
+}
+
+type ProductAvails {
+  availability: Float
+  capacity: Float
+  currency: String!
+  productId: String!
+  price: Float!
+}
+
+type ProductAvailsSearch {
+  accountId: String
+  endDate: String!
+  frequencyCount: Float
+  frequencyInterval: Line_frequencyInterval_enum
+  quantity: Float!
+  productIds: [String]!
+  startDate: String!
+  targeting: [JSONType]
+}
+
+input ProductAvailsSearch_input {
+  accountId: String
+  endDate: String!
+  frequencyCount: Float
+  frequencyInterval: Line_frequencyInterval_enum
+  quantity: Float!
+  productIds: [String]!
+  startDate: String!
+  targeting: [JSONType]
+}
+
+type ProductDetails {
+  description: String
+  icon: String
+  languages: [String]
+  leadTime: Int
+  maturityLevel: String
+  productTags: [String]
+  minSpend: Float
+  timeZone: String
+  httpsCompatible: Boolean
+  adFormatTypes: [String]
+}
+
+type ProductReadmodel {
+  companyId: String
+  companyType: AuditCompanyType
+  product: String
+}
+
+type Provider {
+  id: Int
+  name: String
+  currencyId: Int
+  currencyCode: String
+  isPricingTypeMax: Boolean
+  inventorySources: [Int]
+  storesInAppSegments: Boolean
+}
+
+type Publisher {
+  id: Int
+  name: String
+  partyId: Int
+  currency: String
+  currencyCode: String
+  currencyId: Int
+  isApprovalRequired: Boolean
+  isAvailable: Boolean
+  supportsPreferredDeals: Boolean
+  canManageCreativeSettings: Boolean
+  logo: String
+  order: Int
+  partyInventorySourceId: String
+  pageViews: String
+  termsAndConditions: String
+  integrationType: String
+  integrationId: String
+  description: String
+  country: String
+  countryId: Int
+  timeZoneId: Int
+  timeZoneName: String
+  timeZone: String
+  products: [Product]
+  productsTotal: Int
+  minimumCost: Float
+  minimumImpressionsNumber: Int
+  mediaCommission: Float
+}
+
+type PutLineItem {
+  name: String!
+  paused: Boolean
+  crossDeviceEnabled: Boolean
+  showSingleImpression: Boolean
+  bidOnMatchedCookies: Boolean
+  brandSafetyEnabled: Boolean
+  periods: [RtbLineItemPeriod]!
+  budget: RtbLineItemBudget!
+  pricing: RtbLineItemPricing!
+  impressionCapping: [RtbLineItemCapping]
+  inventories: [RtbLineItemInventory]!
+  categories: RtbLineItemCategories
+  domains: RtbLineItemDomains
+  apps: RtbLineItemApps
+  placement: RtbLineItemPlacement
+  targeting: [RtbLineItemAudience]!
+  banners: [RtbLineItemBanner]
+  environmentSettings: RtbLineItemEnvironmentSettings
+}
+
+type Query {
+  buyerMarketplacePublisher(clientId: Int!, name: String, countryNames: String, includeProducts: String, productFilter: String, offset: Int, count: Int, product_offset: Int, product_count: Int): [Publisher]
+  buyerMarketplacePublisherIntegrationId(clientId: Int!, integrationId: String!): Publisher
+  buyerMarketplacePublisherIntegrationIdProducts(clientId: Int!, currency: String, integrationId: String!, _filter: String, offset: String, count: String, sortBy: String, order: order_enum): [Product]
+  buyerMarketplacePublisherIntegrationIdProductsId(clientId: Int!, currency: String, integrationId: String!, productId: String!): Product
+  buyerOrganizations: Organization
+  buyerOrganizationsCurrent: Organization
+  buyerAccounts: Account
+  buyerAccountsId(accountId: String!): Account
+  buyerAccountsIdOrders(integrationId: String!, accountId: String!, _filter: String, offset: String, count: String, sortBy: String, order: order_enum): Order
+  buyerAccountsIdOrderId(integrationId: String!, accountId: String!, orderId: String!): Order
+  buyerAccountsIdOrderIdLines(integrationId: String!, accountId: String!, orderId: String!, _filter: String, offset: String, count: String, sortBy: String, order: order_enum): Line
+  buyerAccountsIdOrderIdLineId(integrationId: String!, accountId: String!, orderId: String!, lineId: String!): Line
+  buyerAccountsIdAssignments(integrationId: String!, accountId: String!): Assignment
+  buyerAccountsIdAssignmentId(integrationId: String!, accountId: String!, assignmentId: String!): Assignment
+  BuyerAccountsIdCreatives(integrationId: String!, accountId: String!): AgenciesCreative
+  BuyerAccountsIdCreativesId(integrationId: String!, accountId: String!, creativeId: String!): AgenciesCreative
+  auditlog(products: [String], dateFrom: String, dateTo: String, search: String, historyObjectTypes: [String], historyObjectIds: [String], changeTypes: [AuditChangeType], entityChangeTypes: [AuditChangeType], correlationIds: [String], entityIds: [String], entityTypeIds: [String], entityTypes: [String], entityNames: [String], userIds: [String], names: [String], usernames: [String], innerProps: [String], limit: Int, offset: Int, return_Total_Count: String, orderBy: String, orderDirection: AuditOrderDirection, correlationId: String): [HistoryReadmodel]
+  auditedProducts(search: String, orderBy: String, orderDirection: AuditOrderDirection, limit: Int, offset: Int, return_Total_Count: String, correlationId: String): [ProductReadmodel]
+  auditedEntityTypes(search: String, products: [String], orderBy: String, orderDirection: AuditOrderDirection, limit: Int, offset: Int, return_Total_Count: String, correlationId: String): [EntityTypeReadmodel]
+  auditedEntityNames(search: String, products: [String], entityTypeIds: [String], dateFrom: String, dateTo: String, names: [String], orderBy: String, orderDirection: AuditOrderDirection, limit: Int, offset: Int, return_Total_Count: String, correlationId: String): [EntityNameReadmodel]
+  auditedUsers(search: String, orderBy: String, orderDirection: AuditOrderDirection, limit: Int, offset: Int, return_Total_Count: String, correlationId: String): [UserReadmodel]
+  auditedEntityProperties(search: String, entityId: String, entityTypeId: String, property: String, orderBy: String, orderDirection: AuditOrderDirection, limit: Int, offset: Int, return_Total_Count: String, correlationId: String): [InnerPropertyReadmodel]
+  buyerCampaigns(CorrelationId: String, Return_Total_Count: Boolean, offset: Int, limit: Int, status: Status, states: [String], subtypes: [String], advertisers: String, campaignIds: String, excludeAdvertisers: String, managers: String, excludeManagers: String, coManagers: String, excludeCoManagers: String, labels: String, excludeLabels: String, fields: String, search: String, orderBy: OrderBy, orderDirection: CampaignListFilterOrderDirection): [CampaignSummary]
+  buyerCampaign(CorrelationId: String, id: Int!): BuyerCampaign
+  campaignStatus(CorrelationId: String, id: Int!): Status
+  campaignRtbSettings(CorrelationId: String, id: Int!): BuyerCampaignRtbSettings
+  campaignLabels(CorrelationId: String, id: Int!): [BuyerCampaignLabels]
+  campaignsBrandSafety(CorrelationId: String, id: Int!): BuyerCampaignBrandSafetySettings
+  deals(text: String, filters: [InventoryFilterInput], sortings: [DealSorting], offset: Int = 0, limit: Int = 100, campaignId: String): DealResponse
+  selectDeals(text: String, filters: [InventoryFilterInput], sortings: [DealSorting], campaignId: String): SelectDealsResponse
+  openAuctions(text: String, filters: [InventoryFilterInput], sortings: [OpenAuctionSorting], offset: Int = 0, limit: Int = 100, campaignId: String): OpenAuctionResponse
+  selectOpenAuctions(text: String, filters: [InventoryFilterInput], sortings: [OpenAuctionSorting], campaignId: String): SelectOpenAuctionsResponse
+  inventorySources(text: String, offset: Int = 0, limit: Int = 100): InventorySourceResponse
+  ApiV1EntityTypesGet(names: [String], products: [String], orderBy: String, orderDirection: orderDirectionEntity_enum, limit: Int, offset: Int, return_Total_Count: String, CorrelationId: String): [Adform_AuditLog_EntityType_Service_Contracts_EntityTypeResponse]
+  ApiV1EntityTypesByIdGet(id: String!, CorrelationId: String): Adform_AuditLog_EntityType_Service_Contracts_EntityTypeResponse
+  ApiV1StatusGet(CorrelationId: String): JSONType
+  linesView: [LineViewResponse!]!
+  labelGroups: [LabelGroup!]!
+  domainList(id: String!): DomainList
+  rtbLineItemInventory(id: Int!): [RtbLineItemInventory]
+  rtbLineItems(campaignIds: [Int], orderIds: [Int], lineitemIds: [Int], placementIds: [Int], types: [RtbLineItemCreateType], fields: [RtbLineItemListField], paused: Boolean, deleted: Boolean, search: String, sort: [JSONType], offset: Int, limit: Int): [ListLineItem]
+  rtbLineItem(id: Int!): RtbLineItem
+  medias(name: String, campaignId: Int, offset: Int, count: Int): [Media!]!
+  calculateStats(diff: DiffLinePricingView = {lines: [], deleted: []}): LinesStat!
+  buyerAccessContext: AccessContext!
+  newDirectInputMode: InputModeDto!
+  orders(campaignId: Int!, ids: [Int], state: [OrderState], active: Boolean!, search: String, sort: [JSONType], offset: Int): [OrderListItem]
+  order(orderId: Int!): BuyerOrder
+  trackingPoints(campaignId: Int, active: Boolean, conversion: [TrackingPointConversionFilter], search: String, scriptType: [TrackingPointScriptType], ids: [Int], activeStatus: TrackingPointActiveStatus, sort: String, lastHitFrom: [String], lastHitUntil: [String], deactivateFrom: [String], deactivateUntil: [String], deleteFrom: [String], deleteUntil: [String], limit: Int, offset: Int): TrackingPointsResponse
+  trackingPoint(pointId: Int!): TrackingPoint
+  validate: Int
+}
+
+type Report {
+  startDate: String
+  endDateDate: String
+  reportEntries: [ReportEntry]
+}
+
+type ReportEntry {
+  date: String
+  inventorySourceTitle: String
+  publisherSystemId: Int
+  country: String
+  agencyId: Int
+  agencyName: String
+  clientId: Int
+  clientName: String
+  productId: String
+  productName: String
+  orderId: String
+  orderName: String
+  poNumber: String
+  impressionsServed: Int
+  impressionsDelivered: Int
+  buyTypeId: Int
+  buyTypeName: String
+  currencyId: Int
+  currencyName: String
+  grossRevenue: Float
+  agencyBalance: Float
+  agencyDebit: Float
+  agencyCredit: Float
+  rate: Float
+  billingReportBasis: String
+}
+
+type RoasPricing {
+  minPercent: Float
+  maxBidPrice: Float
+  optimization: RtbLineItemCpaPricingOptimization!
+  trackingPointsFilterId: Int
+}
+
+type RtbBudget {
+  goalType: RtbBudgetGoalType
+  amount: Float
+  locked: Boolean
+  periodType: RtbPeriodType
+  buyingType: RtbPricingType
+  buyingPrice: Float
+}
+
+type RtbBudgetDto {
+  cost: RtbBudgetSettingsDto
+  impressions: RtbBudgetSettingsDto
+  clicks: RtbBudgetSettingsDto
+}
+
+"""Enum type: RtbBudgetGoalType"""
+enum RtbBudgetGoalType {
+  Money
+  Impressions
+  Clicks
+  Campaign
+}
+
+input RtbBudgetIT {
+  goalType: RtbBudgetGoalType
+  amount: Float
+  locked: Boolean
+  periodType: RtbPeriodType
+  buyingType: RtbPricingType
+  buyingPrice: Float
+}
+
+type RtbBudgetOverview {
+  totalRtbLines: Int!
+  totalRtbCampaignBudgetLines: Int!
+  totalDailyRtbLines: Int!
+  totalMoneyBudget: Float!
+  totalClickBudget: Float!
+  totalImpressionsBudget: Float!
+  totalMoneyBudgetWODaily: Float!
+  totalClickBudgetWODaily: Float!
+  totalImpressionsBudgetWODaily: Float!
+  totalDailyMoneyBudget: Float!
+  totalDailyImpressionsBudget: Float!
+  totalDailyClickBudget: Float!
+  totalMoneyLines: Int!
+  totalClickLines: Int!
+  totalImpressionLines: Int!
+}
+
+type RtbBudgetSettings {
+  goalType: RtbBudgetSettingsGoalType
+  amount: Float
+  periodType: BuyerCampaignRtbBudgetSettingsPeriodType
+  pacingType: RtbBudgetSettingsPacingType
+}
+
+type RtbBudgetSettingsDto {
+  budget: Float
+  periodType: BuyerCampaignRtbBudgetSettingsPeriodType
+  pacingType: BuyerCampaignRtbCappingPacingType
+}
+
+enum RtbBudgetSettingsGoalType {
+  Budget
+  Impressions
+  Clicks
+}
+
+enum RtbBudgetSettingsPacingType {
+  Evenly
+  Asap
+  Ahead
+}
+
+type RtbCappingDto {
+  type: RtbCappingDtoType
+  impressions: Int
+  period: CappingPeriodDto
+  viewability: CappingViewabilityDto
+}
+
+enum RtbCappingDtoType {
+  Frequency
+  Accumulated
+}
+
+type RtbCappingSettings {
+  type: RtbCappingDtoType
+  impressions: Int
+  period: JSONType
+  viewability: JSONType
+}
+
+type RtbLineItem {
+  id: Int!
+  name: String!
+  type: RtbLineItemCreateType!
+  placementId: Int!
+  orderId: Int!
+  campaignId: Int!
+  agencyId: Int!
+  rtbMediaId: Int!
+  paused: Boolean
+  deleted: Boolean
+  crossDeviceEnabled: Boolean
+  showSingleImpression: Boolean
+  bidOnMatchedCookies: Boolean
+  brandSafetyEnabled: Boolean
+  periods: [RtbLineItemPeriod]!
+  budget: RtbLineItemBudget!
+  pricing: RtbLineItemPricing!
+  impressionCapping: [RtbLineItemCapping]
+  inventories: [RtbLineItemInventory]!
+  categories: RtbLineItemCategories
+  domains: RtbLineItemDomains
+  apps: RtbLineItemApps
+  placement: RtbLineItemPlacement
+  targeting: [RtbLineItemAudience]!
+  banners: [RtbLineItemBanner]
+  environmentSettings: RtbLineItemEnvironmentSettings
+}
+
+type RtbLineItemAccumulatedCapping {
+  viewability: RtbLineItemCappingViewability!
+}
+
+input RtbLineItemAccumulatedCappingInput {
+  viewability: RtbLineItemCappingViewabilityInput!
+}
+
+type RtbLineItemApps {
+  targetingMode: RtbLineItemAppsTargetingMode
+  excludeUnknownApps: Boolean
+  mobileApps: [RtbLineItemMobileApp]!
+}
+
+input RtbLineItemAppsInput {
+  targetingMode: RtbLineItemAppsTargetingMode
+  excludeUnknownApps: Boolean
+  mobileApps: [RtbLineItemMobileAppInput]!
+}
+
+enum RtbLineItemAppsTargetingMode {
+  Include
+  Exclude
+  IncludeAll
+}
+
+type RtbLineItemAudience {
+  id: Int
+  name: String!
+  bidMultiplier: Float
+  rules: RtbLineItemTargetingRules
+}
+
+input RtbLineItemAudienceInput {
+  id: Int
+  name: String!
+  bidMultiplier: Float
+  rules: RtbLineItemTargetingRulesInput
+}
+
+type RtbLineItemAudienceTrackingPointTargeting {
+  targetingMode: RtbLineItemAudienceTrackingPointTargetingTargetingMode
+  trackingPoints: [Int]!
+  id: String
+}
+
+input RtbLineItemAudienceTrackingPointTargetingInput {
+  targetingMode: RtbLineItemAudienceTrackingPointTargetingTargetingMode
+  trackingPoints: [Int]!
+  id: String
+}
+
+enum RtbLineItemAudienceTrackingPointTargetingTargetingMode {
+  Include
+  Exclude
+  IncludeAll
+  ExcludeAll
+}
+
+type RtbLineItemBanner {
+  id: String!
+  bidMultiplier: Float!
+}
+
+input RtbLineItemBannerInput {
+  id: String!
+  bidMultiplier: Float!
+}
+
+type RtbLineItemBudget {
+  useBudgetFrom: RtbLineItemBudgetUseBudgetFrom!
+  money: RtbLineItemMoneyBudget
+  impressions: RtbLineItemImpressionsBudget
+  clicks: RtbLineItemClicksBudget
+  useParentBudget: Boolean
+}
+
+input RtbLineItemBudgetInput {
+  useBudgetFrom: RtbLineItemBudgetUseBudgetFrom!
+  money: RtbLineItemMoneyBudgetInput
+  impressions: RtbLineItemImpressionsBudgetInput
+  clicks: RtbLineItemClicksBudgetInput
+  useParentBudget: Boolean
+}
+
+enum RtbLineItemBudgetPacingType {
+  Evenly
+  Asap
+  Ahead
+}
+
+enum RtbLineItemBudgetUseBudgetFrom {
+  LineItem
+  Campaign
+}
+
+type RtbLineItemCampaignTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  type: RtbLineItemCampaignTargetingType
+  campaigns: [Int]!
+  match: RtbLineItemCampaignTargetingMatch
+  engagementTypes: [Int]
+  retargetingSettings: RtbLineItemRetargetingSettings
+  id: String
+}
+
+input RtbLineItemCampaignTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  type: RtbLineItemCampaignTargetingType
+  campaigns: [Int]!
+  match: RtbLineItemCampaignTargetingMatch
+  engagementTypes: [Int]
+  retargetingSettings: RtbLineItemRetargetingSettingsInput
+  id: String
+}
+
+enum RtbLineItemCampaignTargetingMatch {
+  Any
+  All
+}
+
+enum RtbLineItemCampaignTargetingType {
+  Clicked
+  Engaged
+}
+
+type RtbLineItemCapping {
+  id: Int
+  usePeriodFrom: RtbLineItemBudgetUseBudgetFrom!
+  period: RtbLineItemCappingPeriod
+  frequency: RtbLineItemFrequencyCapping
+  accumulated: RtbLineItemAccumulatedCapping
+}
+
+input RtbLineItemCappingInput {
+  id: Int
+  usePeriodFrom: RtbLineItemBudgetUseBudgetFrom!
+  period: RtbLineItemCappingPeriodInput
+  frequency: RtbLineItemFrequencyCappingInput
+  accumulated: RtbLineItemAccumulatedCappingInput
+}
+
+type RtbLineItemCappingPeriod {
+  type: RtbLineItemCappingPeriodType!
+  duration: Int!
+}
+
+input RtbLineItemCappingPeriodInput {
+  type: RtbLineItemCappingPeriodType!
+  duration: Int!
+}
+
+enum RtbLineItemCappingPeriodType {
+  Days
+  Hours
+}
+
+type RtbLineItemCappingViewability {
+  type: RtbLineItemCappingViewabilityType
+  duration: Int!
+}
+
+input RtbLineItemCappingViewabilityInput {
+  type: RtbLineItemCappingViewabilityType
+  duration: Int!
+}
+
+enum RtbLineItemCappingViewabilityType {
+  Time
+  BrandExposure
+}
+
+type RtbLineItemCategories {
+  iab: IabCategories
+  contextual: ContextualCategories
+  mobile: MobileCategories
+}
+
+input RtbLineItemCategoriesInput {
+  iab: RtbLineItemIabCategoriesInput
+  contextual: RtbLineItemContextualCategoriesInput
+  mobile: RtbLineItemMobileCategoriesInput
+}
+
+enum RtbLineItemChangeListItemOperation {
+  Added
+  Deleted
+  Modified
+}
+
+enum RtbLineItemChangeListItemProperty {
+  AgencyLevelTradingDeskFeeChange
+  AdvertiserLevelTradingDeskFeeChange
+  CampaignLevelTradingDeskFeeChange
+}
+
+type RtbLineItemClicksBudget {
+  amount: Int
+  pacingType: RtbLineItemBudgetPacingType
+  periodType: RtbLineItemListBudgetPeriodType
+  locked: Boolean
+}
+
+input RtbLineItemClicksBudgetInput {
+  amount: Int
+  pacingType: RtbLineItemBudgetPacingType
+  periodType: RtbLineItemListBudgetPeriodType
+  locked: Boolean
+}
+
+type RtbLineItemConnectionTypeTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  types: [RtbLineItemConnectionTypeTargetingType]!
+  subTypes: [RtbLineItemConnectionTypeTargetingSubType]
+  id: String
+}
+
+input RtbLineItemConnectionTypeTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  types: [RtbLineItemConnectionTypeTargetingType]!
+  subTypes: [RtbLineItemConnectionTypeTargetingSubType]
+  id: String
+}
+
+enum RtbLineItemConnectionTypeTargetingSubType {
+  Mobile2G
+  Mobile3G
+  Mobile4G
+}
+
+enum RtbLineItemConnectionTypeTargetingType {
+  Unknown
+  Mobile
+  Wifi
+  Wired
+}
+
+input RtbLineItemContextualCategoriesInput {
+  providerId: Int!
+  ids: [Int]!
+}
+
+type RtbLineItemCookiesTargeting {
+  id: String!
+}
+
+input RtbLineItemCookiesTargetingInput {
+  id: String!
+}
+
+input RtbLineItemCpaPricingInput {
+  price: Float
+  maxBidPrice: Float
+  optimization: RtbLineItemCpaPricingOptimization!
+  interactionType: RtbLineItemCpaPricingInteractionType!
+  trackingPointsFilterId: Int
+  type: RtbLineItemCpaPricingType
+}
+
+enum RtbLineItemCpaPricingInteractionType {
+  PostClick
+  AllCampaign
+}
+
+enum RtbLineItemCpaPricingOptimization {
+  AllConversions
+  TrackingPointsFilter
+}
+
+enum RtbLineItemCpaPricingType {
+  RegularCPA
+  NetCPA
+}
+
+input RtbLineItemCpcPricingInput {
+  price: Float
+  maxBidPrice: Float
+  optimization: RtbLineItemCpcPricingOptimization
+}
+
+enum RtbLineItemCpcPricingOptimization {
+  ClickPrice
+  ClickQuality
+}
+
+input RtbLineItemCpmPricingInput {
+  price: Float
+}
+
+enum RtbLineItemCreateType {
+  Display
+  Mobile
+}
+
+input RtbLineItemDcpmPricingInput {
+  price: Float
+  maxBidPrice: Float
+  type: RtbLineItemDcpmPricingType
+}
+
+enum RtbLineItemDcpmPricingType {
+  Vcr
+}
+
+type RtbLineItemDeal {
+  id: String!
+  bidPrice: Float
+}
+
+input RtbLineItemDealInput {
+  id: String!
+  bidPrice: Float
+}
+
+type RtbLineItemDeviceIdentifierTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  id: String!
+}
+
+input RtbLineItemDeviceIdentifierTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  id: String!
+}
+
+type RtbLineItemDeviceTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  devices: [Int]!
+  oses: [Int]
+  id: String
+}
+
+input RtbLineItemDeviceTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  devices: [Int]!
+  oses: [Int]
+  id: String
+}
+
+type RtbLineItemDeviceTargetingV2 {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  targetingType: RtbLineItemDeviceTargetingV2TargetingType
+  devices: [Int]!
+  id: String
+}
+
+input RtbLineItemDeviceTargetingV2Input {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  targetingType: RtbLineItemDeviceTargetingV2TargetingType
+  devices: [Int]!
+  id: String
+}
+
+enum RtbLineItemDeviceTargetingV2TargetingType {
+  DeviceType
+  Manufacturer
+  DeviceModel
+  Browser
+  OperatingSystem
+}
+
+type RtbLineItemDmpAudienceTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  providerId: Int!
+  categoryId: Int!
+  segments: [DmpAudienceTargetingSegment]!
+  id: String
+}
+
+input RtbLineItemDmpAudienceTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  providerId: Int!
+  categoryId: Int!
+  segments: [RtbLineItemDmpAudienceTargetingSegmentInput]!
+  id: String
+}
+
+input RtbLineItemDmpAudienceTargetingSegmentInput {
+  id: Int
+  fee: Float
+  sources: [RtbLineItemDmpAudienceTargetingSegmentSource]
+}
+
+enum RtbLineItemDmpAudienceTargetingSegmentSource {
+  None
+  Original
+  CrossDevice
+  ThirdParty
+}
+
+type RtbLineItemDomains {
+  include: RtbLineItemDomainsModel
+  exclude: RtbLineItemDomainsModel
+  excludeUnknown: Boolean
+  includeRule: RtbLineItemDomainsRule
+  excludeRule: RtbLineItemDomainsRule
+}
+
+input RtbLineItemDomainsInput {
+  include: RtbLineItemDomainsModelInput
+  exclude: RtbLineItemDomainsModelInput
+  excludeUnknown: Boolean
+  includeRule: RtbLineItemDomainsRuleInput
+  excludeRule: RtbLineItemDomainsRuleInput
+}
+
+type RtbLineItemDomainsModel {
+  source: RtbLineItemDomainsModelSource
+  id: String
+}
+
+input RtbLineItemDomainsModelInput {
+  source: RtbLineItemDomainsModelSource
+  id: String
+}
+
+enum RtbLineItemDomainsModelSource {
+  Template
+  List
+}
+
+type RtbLineItemDomainsRule {
+  customListId: String
+  templateIds: [Int]
+}
+
+input RtbLineItemDomainsRuleInput {
+  customListId: String
+  templateIds: [Int]
+}
+
+type RtbLineItemEnvironmentSettings {
+  environments: [RtbLineItemEnvironmentSettingsEnvironment]
+  formats: [RtbLineItemEnvironmentSettingsFormat]
+}
+
+enum RtbLineItemEnvironmentSettingsEnvironment {
+  MobileWeb
+  DesktopWeb
+}
+
+enum RtbLineItemEnvironmentSettingsFormat {
+  Display
+  AudioAndVideo
+  Native
+}
+
+input RtbLineItemEnvironmentSettingsInput {
+  environments: [RtbLineItemEnvironmentSettingsEnvironment]
+  formats: [RtbLineItemEnvironmentSettingsFormat]
+}
+
+type RtbLineItemFrequencyCapping {
+  impressions: Int
+  viewability: RtbLineItemCappingViewability
+}
+
+input RtbLineItemFrequencyCappingInput {
+  impressions: Int
+  viewability: RtbLineItemCappingViewabilityInput
+}
+
+type RtbLineItemHyperlocalTargeting {
+  locations: [RtbLineItemHyperlocalValue]!
+}
+
+input RtbLineItemHyperlocalTargetingInput {
+  locations: [RtbLineItemHyperlocalValueInput]!
+}
+
+type RtbLineItemHyperlocalValue {
+  address: String
+  latitude: Float!
+  longitude: Float!
+  radius: Int!
+  notes: String
+}
+
+input RtbLineItemHyperlocalValueInput {
+  address: String
+  latitude: Float!
+  longitude: Float!
+  radius: Int!
+  notes: String
+}
+
+input RtbLineItemIabCategoriesInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  ids: [Int]!
+}
+
+enum RtbLineItemIabCategoriesTargetingMode {
+  Include
+  Exclude
+}
+
+type RtbLineItemImpressionsBudget {
+  amount: Int
+  pacingType: RtbLineItemBudgetPacingType
+  periodType: RtbLineItemListBudgetPeriodType
+  locked: Boolean
+}
+
+input RtbLineItemImpressionsBudgetInput {
+  amount: Int
+  pacingType: RtbLineItemBudgetPacingType
+  periodType: RtbLineItemListBudgetPeriodType
+  locked: Boolean
+}
+
+type RtbLineItemInstreamSettings {
+  adPositions: [RtbLineItemInstreamSettingsAdPosition]
+}
+
+enum RtbLineItemInstreamSettingsAdPosition {
+  PreRoll
+  MidRoll
+  PostRoll
+  Unknown
+}
+
+input RtbLineItemInstreamSettingsInput {
+  adPositions: [RtbLineItemInstreamSettingsAdPosition]
+}
+
+type RtbLineItemInventory {
+  id: Int!
+  buyingType: RtbLineItemInventoryBuyingType
+  bidMultiplier: Float
+  deals: [RtbLineItemDeal]
+  packages: [RtbLineItemPackage]
+}
+
+enum RtbLineItemInventoryBuyingType {
+  OpenExchange
+  OnlyTargetDeals
+}
+
+input RtbLineItemInventoryInput {
+  id: Int!
+  buyingType: RtbLineItemInventoryBuyingType
+  bidMultiplier: Float
+  deals: [RtbLineItemDealInput]
+  packages: [RtbLineItemPackageInput]
+}
+
+type RtbLineItemIpRangeTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  id: String!
+}
+
+input RtbLineItemIpRangeTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  id: String!
+}
+
+type RtbLineItemIspTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  isps: [Int]!
+  id: String
+}
+
+input RtbLineItemIspTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  isps: [Int]!
+  id: String
+}
+
+type RtbLineItemLanguageTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  languages: [String]!
+  id: String
+}
+
+input RtbLineItemLanguageTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  languages: [String]!
+  id: String
+}
+
+enum RtbLineItemListBudgetGoalType {
+  Money
+  Impressions
+  Clicks
+  Campaign
+}
+
+enum RtbLineItemListBudgetPeriodType {
+  Total
+  Daily
+}
+
+enum RtbLineItemListField {
+  Id
+  PlacementId
+  OrderId
+  CampaignId
+  AgencyId
+  Name
+  Type
+  RtbLineItemBudget
+  BudgetInfo
+  Paused
+  Deleted
+  Periods
+  RtbLineItemPricing
+}
+
+enum RtbLineItemListSortBy {
+  Id
+  Name
+}
+
+enum RtbLineItemListSortDirection {
+  Asc
+  Desc
+}
+
+type RtbLineItemLocationsTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  locations: [Int]!
+  zipCodes: RtbLineItemZipCodesTargeting
+  id: String
+}
+
+input RtbLineItemLocationsTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  locations: [Int]!
+  zipCodes: RtbLineItemZipCodesTargetingInput
+  id: String
+}
+
+enum RtbLineItemLocationType {
+  City
+  Region
+  Country
+  DmaRegion
+}
+
+type RtbLineItemMobileApp {
+  storeId: Int!
+  appId: String!
+  appName: String!
+  developerName: String
+}
+
+input RtbLineItemMobileAppInput {
+  storeId: Int!
+  appId: String!
+  appName: String!
+  developerName: String
+}
+
+input RtbLineItemMobileCategoriesInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  ids: [Int]!
+}
+
+type RtbLineItemMoneyBudget {
+  amount: Float
+  pacingType: RtbLineItemBudgetPacingType
+  periodType: RtbLineItemListBudgetPeriodType
+  locked: Boolean
+}
+
+input RtbLineItemMoneyBudgetInput {
+  amount: Float
+  pacingType: RtbLineItemBudgetPacingType
+  periodType: RtbLineItemListBudgetPeriodType
+  locked: Boolean
+}
+
+type RtbLineItemPackage {
+  id: Int!
+  bidMultiplier: Float
+}
+
+input RtbLineItemPackageInput {
+  id: Int!
+  bidMultiplier: Float
+}
+
+type RtbLineItemPeriod {
+  start: String!
+  end: String!
+}
+
+input RtbLineItemPeriodInput {
+  start: String!
+  end: String!
+}
+
+type RtbLineItemPlacement {
+  targetAboveTheFold: Boolean
+  videoSettings: RtbLineItemVideoSettings
+}
+
+input RtbLineItemPlacementInput {
+  targetAboveTheFold: Boolean
+  videoSettings: RtbLineItemVideoSettingsInput
+}
+
+type RtbLineItemPricing {
+  cpm: CpmPricing
+  vcpm: VcpmPricing
+  cpc: CpcPricing
+  cpa: CpaPricing
+  roas: RoasPricing
+  dcpm: DcpmPricing
+}
+
+input RtbLineItemPricingInput {
+  cpm: RtbLineItemCpmPricingInput
+  vcpm: RtbLineItemVcpmPricingInput
+  cpc: RtbLineItemCpcPricingInput
+  cpa: RtbLineItemCpaPricingInput
+  roas: RtbLineItemRoasPricingInput
+  dcpm: RtbLineItemDcpmPricingInput
+}
+
+type RtbLineItemRetargetingSettings {
+  intervalType: RtbLineItemRetargetingSettingsIntervalType
+  timeUnit: RtbLineItemCappingPeriodType
+  amount: Int
+}
+
+input RtbLineItemRetargetingSettingsInput {
+  intervalType: RtbLineItemRetargetingSettingsIntervalType
+  timeUnit: RtbLineItemCappingPeriodType
+  amount: Int
+}
+
+enum RtbLineItemRetargetingSettingsIntervalType {
+  AtAnyTime
+  DuringLast
+  MoreThan
+}
+
+input RtbLineItemRoasPricingInput {
+  minPercent: Float
+  maxBidPrice: Float
+  optimization: RtbLineItemCpaPricingOptimization!
+  trackingPointsFilterId: Int
+}
+
+type RtbLineItemTargetingRules {
+  locations: [RtbLineItemLocationsTargeting]
+  languages: [RtbLineItemLanguageTargeting]
+  campaigns: [RtbLineItemCampaignTargeting]
+  audienceTrackingPoints: [RtbLineItemAudienceTrackingPointTargeting]
+  trackingPoints: [RtbLineItemTrackingPointTargeting]
+  dmpAudiences: [RtbLineItemDmpAudienceTargeting]
+  isps: [RtbLineItemIspTargeting]
+  ipRanges: [RtbLineItemIpRangeTargeting]
+  cookies: RtbLineItemCookiesTargeting
+  deviceIdentifiers: RtbLineItemDeviceIdentifierTargeting
+  hyperlocals: RtbLineItemHyperlocalTargeting
+  connectionTypes: [RtbLineItemConnectionTypeTargeting]
+  devices: [RtbLineItemDeviceTargeting]
+  devicesV2: [RtbLineItemDeviceTargetingV2]
+}
+
+input RtbLineItemTargetingRulesInput {
+  locations: [RtbLineItemLocationsTargetingInput]
+  languages: [RtbLineItemLanguageTargetingInput]
+  campaigns: [RtbLineItemCampaignTargetingInput]
+  audienceTrackingPoints: [RtbLineItemAudienceTrackingPointTargetingInput]
+  trackingPoints: [RtbLineItemTrackingPointTargetingInput]
+  dmpAudiences: [RtbLineItemDmpAudienceTargetingInput]
+  isps: [RtbLineItemIspTargetingInput]
+  ipRanges: [RtbLineItemIpRangeTargetingInput]
+  cookies: RtbLineItemCookiesTargetingInput
+  deviceIdentifiers: RtbLineItemDeviceIdentifierTargetingInput
+  hyperlocals: RtbLineItemHyperlocalTargetingInput
+  connectionTypes: [RtbLineItemConnectionTypeTargetingInput]
+  devices: [RtbLineItemDeviceTargetingInput]
+  devicesV2: [RtbLineItemDeviceTargetingV2Input]
+}
+
+type RtbLineItemTrackingPointTargeting {
+  targetingMode: RtbLineItemAudienceTrackingPointTargetingTargetingMode
+  trackingPoints: [Int]
+  trackingPointFilters: [Int]
+  match: RtbLineItemCampaignTargetingMatch
+  retargetingSettings: RtbLineItemRetargetingSettings
+  id: String
+}
+
+input RtbLineItemTrackingPointTargetingInput {
+  targetingMode: RtbLineItemAudienceTrackingPointTargetingTargetingMode
+  trackingPoints: [Int]
+  trackingPointFilters: [Int]
+  match: RtbLineItemCampaignTargetingMatch
+  retargetingSettings: RtbLineItemRetargetingSettingsInput
+  id: String
+}
+
+input RtbLineItemVcpmPricingInput {
+  price: Float
+  maxBidPrice: Float
+}
+
+type RtbLineItemVideoSettings {
+  instream: RtbLineItemInstreamSettings
+  videoTypes: [RtbLineItemVideoSettingsVideoType]
+  letterBoxing: [RtbLineItemVideoSettingsLetterBoxing]
+  playback: [RtbLineItemVideoSettingsPlayback]
+  playerSizes: [RtbLineItemVideoSettingsPlayerSize]
+}
+
+input RtbLineItemVideoSettingsInput {
+  instream: RtbLineItemInstreamSettingsInput
+  videoTypes: [RtbLineItemVideoSettingsVideoType]
+  letterBoxing: [RtbLineItemVideoSettingsLetterBoxing]
+  playback: [RtbLineItemVideoSettingsPlayback]
+  playerSizes: [RtbLineItemVideoSettingsPlayerSize]
+}
+
+enum RtbLineItemVideoSettingsLetterBoxing {
+  NotAllowed
+  Allowed
+  Unknown
+}
+
+enum RtbLineItemVideoSettingsPlayback {
+  AutoPlaySoundOn
+  AutoPlaySoundOff
+  UserInvokedPlay
+  Unknown
+}
+
+enum RtbLineItemVideoSettingsPlayerSize {
+  Small
+  Medium
+  Hd
+  Unknown
+}
+
+enum RtbLineItemVideoSettingsVideoType {
+  Instream
+  Outstream
+}
+
+type RtbLineItemZipCodesTargeting {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  codes: [String]!
+}
+
+input RtbLineItemZipCodesTargetingInput {
+  targetingMode: RtbLineItemIabCategoriesTargetingMode
+  codes: [String]!
+}
+
+"""Enum type: RtbPeriodType"""
+enum RtbPeriodType {
+  Total
+  Daily
+}
+
+"""Enum type: RtbPricingType"""
+enum RtbPricingType {
+  CPM
+  vCPM
+  CPC
+  CPA
+  ROAS
+  dCPM
+}
+
+type RtbSettingsDto {
+  budget: RtbBudgetDto
+  capping: [RtbCappingDto]
+}
+
+type Segment {
+  id: Int
+  name: String
+  fee: Float
+  feeInCampaignCurrency: Float
+  currencyId: Int
+  categoryId: Int
+  dataProviderId: Int
+  isCrossDevice: Boolean
+}
+
+type SegmentAffinity {
+  affinity: Float!
+  segment: JSONType!
+}
+
+type SelectDealsResponse {
+  ids: [String]!
+}
+
+type SelectOpenAuctionsResponse {
+  ids: [String]!
+}
+
+type ServerErrorResponse {
+  reason: String
+  message: String
+  params: JSONType
+}
+
+type Size {
+  height: Int!
+  width: Int!
+}
+
+enum SortBy {
+  default
+  name
+  budget
+  startDate
+  endDate
+}
+
+enum SortDirection {
+  asc
+  desc
+}
+
+type SortingDetails {
+  sortBy: SortBy
+  sortDirection: SortDirection
+}
+
+enum SortingOrder {
+  asc
+  desc
+}
+
+enum Status {
+  Active
+  Inactive
+}
+
+enum status_enum {
+  book
+  reserve
+  cancel
+  reset
+}
+
+type StatusPatchBody {
+  state: CampaignListFilterState
+  ids: [Int]
+}
+
+enum Subtype {
+  Display
+  Email
+  Affiliate
+  Mobile
+  SocialMedia
+  Mixed
+  Google
+  Yahoo
+  SearchNonApi
+  SearchAll
+  Rtb
+  Print
+  Microsoft
+}
+
+enum SupportPackage {
+  InHouse
+  AdformRtbBasic
+  AdformRtbAdvanced
+}
+
+enum SynchronizationRequest_readModelTypes_enum {
+  Undefined
+  History
+  EntityName
+  EntityType
+  InnerProperty
+  Product
+  User
+}
+
+type Targeting {
+  setupId: Int
+  groups: [TargetingGroup]
+  listIndices: TargetingListIndices
+}
+
+type TargetingAudience {
+  id: Int
+  name: String
+}
+
+type TargetingGroup {
+  id: Int
+  name: String
+  rules: [TargetingGroupRule]
+  settings: TargetingGroupSettings
+  cid: String
+}
+
+type TargetingGroupRule {
+  cid: String
+}
+
+type TargetingGroupSettings {
+  priceMultiplier: Float
+}
+
+type TargetingListIndices {
+  cookieList: Int
+  ipRangeList: Int
+}
+
+type TrackingPoint {
+  id: Int!
+  pathAndName: String!
+  abbreviation: String!
+  createdAt: String!
+  url: String
+  active: Boolean!
+  trackingSetupId: Int
+  campaignId: Int!
+  conversion: String
+  scriptType: String
+  lastHitAt: String
+  deactivateAt: String
+  deleteAt: String
+  activeStatus: TrackingPointActiveStatus
+}
+
+enum TrackingPointActiveStatus {
+  active
+  inactive
+}
+
+enum TrackingPointConversionFilter {
+  Conversion1
+  Conversion2
+  Conversion3
+  True
+  False
+}
+
+enum TrackingPointScriptType {
+  standard
+  click
+  flashStd
+  flashInv
+  redirect
+  audience
+}
+
+enum TrackingPointsDeleteAfterPeriod {
+  oneDay
+  sevenDays
+  thirtyDays
+  threeMonths
+}
+
+type TrackingPointsOperationDeclinedResponse {
+  reason: String!
+  message: String!
+  ids: [Int]!
+}
+
+type TrackingPointsOperationErrorResponse {
+  reason: String!
+  message: String!
+}
+
+type TrackingPointsOperationResponse {
+  accepted: [Int]!
+  declined: [TrackingPointsOperationDeclinedResponse]!
+}
+
+type TrackingPointsResponse {
+  trackingPoints: [TrackingPoint]
+  totalCount: Int
+}
+
+type TrackingSettings {
+  enabled: Boolean!
+  viewThroughEnabled: Boolean!
+  conversionAttributionPriority: TrackingSettingsConversionAttributionPriority!
+}
+
+enum TrackingSettingsConversionAttributionPriority {
+  Low
+  Standard
+}
+
+enum Trafficking {
+  Adform
+  InHouse
+}
+
+enum Type {
+  Standard
+  Search
+}
+
+type UiFee {
+  id: String
+  campaignId: Int
+  orderId: Int
+  typeId: String!
+  typeName: String!
+  titleId: Int
+  title: String!
+  isPredefined: Boolean
+  percentage: Float
+  fixedCost: BigDecimal
+  hours: Float
+  insertions: Float
+  billingRatePerHour: BigDecimal!
+  volume: Float!
+  apply: Boolean!
+  active: Boolean
+  seqNo: Int
+  grossAmount: BigDecimal
+  netAmount: BigDecimal
+  netAmountDirect: BigDecimal
+  netAmountRtb: BigDecimal
+  netAmountIncludingFee: BigDecimal
+  netAmount2: BigDecimal
+  netAmount2Direct: BigDecimal
+  netAmount2Rtb: BigDecimal
+  netAmountIncludingFee2: BigDecimal
+  excludedLines: [Int!]
+  appliedActiveLinesCount: Int
+  applyTo: FeeApplyToType!
+  appliedAgLinesCount: Int
+  appliedDirectLinesCount: Int
+  appliedRtbLinesCount: Int
+}
+
+type UnauthorizedResponse {
+  reason: String
+  message: String
+  params: JSONType
+}
+
+type UnifiedSegment {
+  id: String!
+  segmentName: String!
+  categoryName: String!
+  subCategoryName: String!
+}
+
+type UpdateCampaignParams {
+  advertiserId: Int!
+  name: String!
+  budget: Float!
+  currency: String!
+  startDate: String!
+  endDate: String!
+  subType: Subtype!
+  placementViewType: PlacementViewType!
+  managerId: Int!
+  coManagerId: Int!
+  trafficking: Trafficking!
+  supportPackage: SupportPackage!
+  timeZone: String!
+  comment: String
+  purchaseOrderNumber: String
+  ovkCampaignId: String
+  crossDeviceTargetingEnabled: Boolean!
+  commentForReporting: String
+  cookieLifeTime: JSONType!
+  visibility: JSONType!
+  tracking: JSONType!
+  adServing: JSONType!
+  marathon: JSONType
+}
+
+input UpdateLineItemInput {
+  name: String!
+  paused: Boolean
+  crossDeviceEnabled: Boolean
+  showSingleImpression: Boolean
+  bidOnMatchedCookies: Boolean
+  brandSafetyEnabled: Boolean
+  periods: [RtbLineItemPeriodInput]!
+  budget: RtbLineItemBudgetInput!
+  pricing: RtbLineItemPricingInput!
+  impressionCapping: [RtbLineItemCappingInput]
+  inventories: [RtbLineItemInventoryInput]!
+  categories: RtbLineItemCategoriesInput
+  domains: RtbLineItemDomainsInput
+  apps: RtbLineItemAppsInput
+  placement: RtbLineItemPlacementInput
+  targeting: [RtbLineItemAudienceInput]!
+  banners: [RtbLineItemBannerInput]
+  environmentSettings: RtbLineItemEnvironmentSettingsInput
+}
+
+input UpdateOrderInput {
+  startDate: String
+  endDate: String
+  id: Int
+  name: String!
+  budget: Float!
+  campaignId: Int!
+  active: Boolean
+  rtbSettings: OrderRtbSettingsInput
+}
+
+type UploadResult {
+  Id: String
+  Count: Int
+}
+
+type User {
+  userId: String
+  name: String
+  username: String
+}
+
+type UserReadmodel {
+  userId: String
+  username: String
+  name: String
+  companyId: String
+  companyType: AuditCompanyType
+}
+
+type ValidationError {
+  reason: String!
+  message: String
+  params: JSONType
+}
+
+type ValidationErrorModel {
+  reason: String!
+  message: String
+  params: JSONType
+}
+
+type VcpmPricing {
+  price: Float
+  maxBidPrice: Float
+}
+
+type ViewabilitySettings {
+  type: BuyerCampaignCappingViewabilityType
+  duration: Int
+}
+
+type VisibilitySettings {
+  firstLevelTime: Int!
+  firstLevelArea: Int!
+  secondLevelEnabled: Boolean!
+  secondLevelTime: Int!
+  secondLevelArea: Int!
+  thirdLevelEnabled: Boolean!
+  thirdLevelTime: Int!
+  thirdLevelArea: Int!
+}

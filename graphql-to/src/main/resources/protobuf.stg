@@ -1,0 +1,180 @@
+
+delimiters "$", "$"
+
+
+exitDocument(definitions, package) ::= <<
+
+syntax = "proto2";
+
+package $package$;
+
+$definitions$
+
+
+>>
+
+inputObjectTypeDefinition(name, inputValues, linkFields) ::= <<
+message $name$ { // input type
+	$inputValues:{v |$v$
+	}$
+}
+
+>>
+
+enumTypeDefinition(name, enumValues) ::= <<
+message $name$ { // enum
+	$enumValues:{v |$v$
+	}$
+	
+}
+
+>>
+
+enumValue(value) ::= <<
+$value$
+>>
+
+scalarTypeDefinition(name) ::= <<
+message $name${ // scalar type
+}
+
+>>
+
+objectTypeDefinition(name, interfaces, fields, methods, linkFields) ::= <<
+message $name$ {
+	$fields$
+	$methods$
+}
+
+>>
+
+interfaceTypeDefinition(name, fields, methods, linkFields) ::= <<
+message $name$ {
+	$fields$
+	$methods$
+}
+
+>>
+
+unionTypeDefinition(name, members) ::= <<
+message $name$ <<union\>>{
+}
+
+$members:{z|$aggregation(name, z)$}$
+
+>>
+aggregation(from, to) ::= <<
+$from$ *--> $exactlyOne()$ $to$
+
+>>
+
+type(type) ::= <<
+$type$
+>>
+
+
+argumentsDefinition(arguments) ::= <<
+$arguments$	
+>>
+
+inputValueDefinition(name, type, defaultValue) ::= <<
+{field} $name$:$type$$if(defaultValue)$ = $defaultValue$$endif$
+>>
+
+
+fieldDefinition(name, type) ::= <<
+{field} $name$: $type$
+
+>>
+
+operation(name, type, arguments) ::= <<
+{method} $name$($arguments; separator=", "$): $type$ 
+
+>>
+
+listType(typeName, cardinality) ::= <<
+$typeName$[] 
+>>
+
+nonNullType(name) ::= <<
+1 $name$
+>>
+
+association(typeA, nameA, cardA, typeB, nameB, cardB) ::= <<
+$typeA$ $cardA$ --> $cardB$ $typeB$ : $nameA$
+
+>>
+
+oneToMany() ::= <<
+"1..*"
+>>
+
+manyToOne() ::= <<
+"*..1"
+>>
+
+manyToMany() ::= <<
+"*..*"
+>>
+
+zeroOrOne() ::= <<
+"0..1"
+>>
+
+zeroToMany() ::= <<
+"0..*"
+>>
+
+
+many() ::= <<
+"*"
+>>
+
+exactlyOne() ::= <<
+"1"
+>>
+
+int() ::= <<
+Integer
+>>
+
+float() ::= <<
+Double
+>>
+
+string() ::= <<
+String
+>>
+
+boolean() ::= <<
+Boolean
+>>
+
+jsontype() ::= <<
+JSONType
+>>
+
+date() ::= <<
+Date
+>>
+
+customType(typeName, package)::= <<
+$typeName$
+>>
+
+packageSeperator() ::= <<
+_
+>>
+
+
+reservedWord(word) ::= <<
+$word$
+>>
+
+normalWord(word) ::= <<
+$word$
+>>
+
+
+reservedWordList() ::= <<
+>>

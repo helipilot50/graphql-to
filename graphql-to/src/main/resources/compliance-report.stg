@@ -1,0 +1,28 @@
+delimiters "$", "$"
+
+
+report(schemaModule, types, inputs, enums, scalars, impliedRelationships)
+
+type(name, issues, fixes) ::= <<
+
+>>
+
+input(name, issues, fixes) ::= <<
+
+>>
+
+enum(name, issues, fixes) ::= <<
+
+>>
+
+scalar(name, issues, fixes) ::= <<
+
+>>
+
+issue(type, relatesTo, fix) ::= <<
+
+>>
+
+fix(type, relatesTo) ::= <<
+
+>>

@@ -1,0 +1,294 @@
+
+delimiters "$", "$"
+
+
+exitDocument(definitions, package) ::= <<
+
+package $package$;
+import mdd_types;
+	
+	$definitions$
+	
+end.
+
+>>
+
+inputObjectTypeDefinition(name, inputValues, linkFields) ::= <<
+class $name$
+	$inputValues:{v |attribute $v$;
+	}$
+end;
+$if(linkFields)$$linkFields$$endif$
+
+>>
+
+enumTypeDefinition(name, enumValues) ::= <<
+enumeration $name$
+	$enumValues:{v |$v$;
+	}$
+	
+end;
+
+>>
+
+enumValue(value) ::= <<
+$value$
+>>
+
+scalarTypeDefinition(name) ::= <<
+class $name$
+end;
+
+>>
+
+objectTypeDefinition(name, interfaces, fields, methods, linkFields) ::= <<
+class $name$$if(interfaces)$ implements $interfaces:{z|$z$}$$endif$
+	$fields$
+	$methods$
+end;
+
+$if(linkFields)$$linkFields$$endif$
+
+>>
+
+interfaceTypeDefinition(name, fields, methods, linkFields) ::= <<
+interface $name$
+	$fields$
+	$methods$
+end;
+
+$if(linkFields)$$linkFields$$endif$
+
+>>
+
+unionTypeDefinition(name, members) ::= <<
+class $name$ <<union\>>{
+}
+
+$members:{z|$aggregation(name, z)$}$
+
+>>
+aggregation(from, to) ::= <<
+
+
+>>
+type(type) ::= <<
+$type$
+>>
+
+
+argumentsDefinition(arguments) ::= <<
+$arguments$	
+>>
+
+inputValueDefinition(name, type, defaultValue) ::= <<
+$name$:$type$$if(defaultValue)$ := $defaultValue$$endif$
+>>
+
+
+fieldDefinition(name, type) ::= <<
+attribute $name$: $type$;
+
+>>
+
+operation(name, type, arguments) ::= <<
+operation $name$($first(arguments):{z|$z$}$$rest(arguments):{z|, $z$}$): $type$; 
+
+>>
+
+listType(typeName, cardinality) ::= <<
+$typeName$$zeroToMany()$ 
+>>
+
+nonNullType(name) ::= <<
+$name$$exactlyOne()$
+>>
+
+association(typeA, nameA, cardA, typeB, nameB, cardB) ::= <<
+association $nameA$2$nameB$
+  role $nameA$ : $typeB$$cardB$;
+  navigable role $nameB$ : $typeA$$cardA$; 
+end;
+
+>>
+
+oneToMany() ::= <<
+[1,*]
+>>
+
+manyToOne() ::= <<
+[*,1]
+>>
+
+manyToMany() ::= <<
+[*,*]
+>>
+
+zeroOrOne() ::= <<
+[0,1]
+>>
+
+zeroToMany() ::= <<
+[0,*]
+>>
+
+many() ::= <<
+[*]
+>>
+
+exactlyOne() ::= <<
+[1]
+>>
+
+int() ::= <<
+Integer
+>>
+
+float() ::= <<
+Double
+>>
+
+string() ::= <<
+String
+>>
+
+boolean() ::= <<
+Boolean
+>>
+
+jsontype() ::= <<
+JSONType
+>>
+
+date() ::= <<
+Date
+>>
+
+customType(typeName, package)::= <<
+$typeName$
+>>
+packageSeperator() ::= <<
+_
+>>
+
+
+reservedWord(word) ::= <<
+\\$word$
+>>
+
+normalWord(word) ::= <<
+$word$
+>>
+
+reservedWordList() ::= <<
+abstract 
+access
+actor
+aggregation
+alias
+and
+any
+apply
+association
+as
+attribute
+begin
+broadcast
+by
+call
+catch
+class
+create
+component
+composition
+connector
+datatype
+delete
+derived
+destroy
+do
+else
+elseif
+end
+entry
+enumeration
+exit
+extends
+extent
+external
+false
+finally
+function
+id
+if
+implements
+import
+in
+initial
+inout
+interface
+invariant
+is
+link
+load
+model
+navigable
+new
+nonunique
+not
+null
+on
+operation
+or
+ordered
+out
+package
+port
+postcondition
+precondition
+private
+primitive
+profile
+property
+protected
+provided
+public
+query
+raise
+raises
+read
+readonly
+reception
+reference
+repeat
+required
+return
+role
+self
+send
+signal
+specializes
+state
+statemachine
+static
+status
+stereotype
+subsets
+terminate
+then
+to
+transition
+true
+try
+type
+unique
+unlink
+unordered
+until
+update
+var
+when
+where
+while
+
+>>
