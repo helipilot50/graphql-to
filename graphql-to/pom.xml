@@ -107,7 +107,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.adform.graphql.export.Cli</mainClass>
+							<mainClass>net.helipilot50.graphql.export.Cli</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
