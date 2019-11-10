@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -22,6 +21,7 @@ import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroup;
 import org.stringtemplate.v4.STGroupFile;
 
+import edu.emory.mathcs.backport.java.util.Collections;
 import net.helipilot50.graphql.export.grammar.GraphQLBaseListener;
 import net.helipilot50.graphql.export.grammar.GraphQLLexer;
 import net.helipilot50.graphql.export.grammar.GraphQLParser;
@@ -32,7 +32,6 @@ import net.helipilot50.graphql.export.grammar.GraphQLParser.DocumentContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.EnumTypeDefinitionContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.EnumValueContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.EnumValueDefinitionContext;
-import net.helipilot50.graphql.export.grammar.GraphQLParser.FieldContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.FieldDefinitionContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.InputObjectTypeDefinitionContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.InputValueDefinitionContext;
@@ -48,8 +47,6 @@ import net.helipilot50.graphql.export.grammar.GraphQLParser.TypeNameContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.TypeSystemDefinitionContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.UnionMembersContext;
 import net.helipilot50.graphql.export.grammar.GraphQLParser.UnionTypeDefinitionContext;
-
-import edu.emory.mathcs.backport.java.util.Collections;
 import net.sourceforge.plantuml.FileFormat;
 import net.sourceforge.plantuml.FileFormatOption;
 import net.sourceforge.plantuml.SourceStringReader;
