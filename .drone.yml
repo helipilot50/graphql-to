@@ -2,15 +2,12 @@ kind: pipeline
 type: docker
 name: graphql-to
 
-workspace:
-  path: /drone
-
 steps:
   - name: build
     image: maven
     commands:
       - pwd
-      - ls
+      - ls -slag
       - mvn clean package
     when:
       branch:
