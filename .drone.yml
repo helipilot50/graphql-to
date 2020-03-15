@@ -9,6 +9,8 @@ steps:
   - name: build
     image: maven
     commands:
+      - pwd
+      - ls
       - mvn clean package
     when:
       branch:
