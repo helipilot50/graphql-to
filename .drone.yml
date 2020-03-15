@@ -1,0 +1,16 @@
+kind: pipeline
+type: docker
+name: graphql-to
+
+steps:
+  - name: build
+    image: maven
+    commands:
+      - npm install
+      - npm run build
+    when:
+      branch:
+        - master
+        - develop
+        - feature/*
+
