@@ -3,19 +3,10 @@ type: docker
 name: graphql-to
 
 steps:
-  - name: clean
-    image: maven
-    commands:
-      - mvn clean
-    when:
-      branch:
-        - master
-        - develop
-        - feature/*
   - name: build
     image: maven
     commands:
-      - mvn build
+      - mvn clean build
     when:
       branch:
         - master
